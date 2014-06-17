@@ -1,0 +1,148 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level1.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Level 1
+                </h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <div class="centered">
+                    <a href="/instruction" role="button" class="btn btn-primary btn-lg btn-int" id="instr-button">Zurück</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>
+                    Schätzt die Anzahl der Punkte
+                </h3>
+                <div class="sub-header s-header-inst"></div>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h4>
+                    Aufgabenstellung Teil 1:
+                </h4>
+                <p>
+                    Es soll die Anzahl der Objekte im Rechteck geschätzt werden und die absolute Zahl in das unten folgende Eingabefeld 
+                    mit Zugehörigkeit der Klasse eingegeben werden.<br>
+                    Es müssen total 25 Schätzungen abgeben werden. Wenn in der Klasse weniger als 25 Schülerinnen und Schüler sind, müssen
+                    die restlichen Schätzungen noch ergänzt werden. 
+                </p>
+            </div>
+        </div>
+        <div class="row" id="form-row">
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <div class="form-group">
+                            <label for="classSelector">Klasse</label>      
+                            <select class="form-control" id="classSelector" name="class_number">
+		                        <option value="default">...</option>
+		                        {% for class in classes %}
+		                        <option>{{ class }}</option>
+	                            {% endfor %}
+                            </select>
+                        </div>          
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <div class="form-group">
+                            <label for="estimate-input">Schätzung</label>
+                            <input type="text" id="estimate-input" class ="form-control" name="estimate">
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <button class="btn btn-primary btn-lg btn-int" id="submit-button">Eingabe</button>  
+                    </div>
+                </p>
+            </div>
+            
+        </div>
+        <div class="row" id="invisible-row">
+            <div id="result"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h4>
+                    Bewertung:
+                </h4>
+                <p>
+                    Der Mittelwert aller Zahlenwerte pro Gruppe ergibt das Ergebnis.<br>
+                    Die Ergebnisse werden mit dem Lösungswert verglichen und die Gruppen entsprechend rangiert.
+                </p>
+                <h4>
+                    Aufgabenstellung Teil 2:
+                </h4>
+                <p>
+                    Nun müssen die realen Spielsektoren gewählt werden. Die Spielsektoren definieren sich durch ein sogenanntes Voronoi-Diagramm des gesamten Spielfeldes.
+                    Gegeben sind die Startpunkte dieser Sektoren, welche im folgenden Level angelaufen werden müssen und auf untenstehender Karte sichtbar sind:
+                </p>
+                <p>
+                    Definition Voronoi-Diagramm<br>
+                    Als Voronoi-Diagramm, auch Thiessen-Polygone genannt, wird eine Zerlegung des Raumes in
+                    Regionen bezeichnet, die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren
+                    bezeichnet, bestimmt werden. Jede Region wird durch genau ein Zentrum bestimmt und umfasst alle
+                    Punkte des Raumes, die in Bezug zur euklidischen Metrik näher an dem Zentrum der Region liegen
+                    als an jedem anderen Zentrum. Derartige Regionen werden auch als Voronoi-Regionen bezeichnet.
+                    Aus allen Punkten, die mehr als ein nächstgelegenes Zentrum besitzen und somit eine Grenze der
+                    Region bilden, entsteht das Voronoi-Diagramm. Die Gewinner aus dem erste Teil des Level 1 dürfen
+                    zuerst raten. Das Ziel ist es, denjenigen Sektor zu finden, welcher die grösste Fläche fasst.<br>
+                    Es soll nach Reihenfolge der Teilaufgabe 1 jener Spielsektor gewählt werden, dessen Fläche maximal ist.
+                </p>
+                <h4>
+                    Bewertung:
+                </h4>
+                <p>
+                Die Fläche der resultierenden Thiessen Polygone in Quadratkilometer multipliziert mit 1000 ergibt die Punktzahl für das Level 1.<br>
+
+                Beispiel: 1,6 km&sup2; x 1000 = 1600 Punkte
+                </p>
+            </div>
+        </div>
+        <div class="row" id="map-row-1">
+            <div class="col-md-6 col-md-offset-3">
+                <iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/home/webmap/embedViewer.html?webmap=40939fa5596f447390eea8ba366ab372&amp;extent=7.4208,46.9366,7.4763,46.9618"></iframe>
+	        </div>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script type=text/javascript>
+		$(function () {
+		    "use strict";
+		    $('button#submit-button').bind('click', function () {
+		        var max = document.getElementById("classSelector").selectedIndex;
+		        $.getJSON('/_level_1_submit', {
+		            class_num: max,
+		            estimate: $('input[name="estimate"]').val()
+		        }, function (data) {
+		            $("#result").text(data.result);
+		        });
+		        return false;
+		    });
+		});
+    </script>
+{% endblock %}

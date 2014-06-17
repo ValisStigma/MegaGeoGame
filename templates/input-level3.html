@@ -1,0 +1,112 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level3.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Level 3
+                </h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <div class="centered">
+                    <a href="/instruction" role="button" class="btn btn-primary btn-lg btn-int" id="instr-button">Zurück</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>
+                    Lärmige Strassen
+                </h3>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                
+                <h4>
+                    Aufgabenstellung:
+                </h4>
+                <p>
+                    Es soll das Lärmniveau einer Strassen- oder Wegkreuzung im zugehörigen Spielsektor kartiert werden.
+                </p>
+                <h4>
+                    Tool:
+                </h4>
+                <p>
+                    Mit einer Lärmmessungs-App möglichst viele und laute Orte messen und kartieren.
+                </p>
+                <p>
+                    Lärm messen mit folgenden Apps (Android: "Lärmmessung - Sound Meter" / iPhone "Decibel Ultra")
+                </p>
+                <p>
+                    <div class="left-floater">
+	                    <a href="https://play.google.com/store/apps/details?id=kr.sira.sound&hl=de">
+	                        <img alt="Lärmmessung" src="static/images/icon.png" />         
+	                    </a>
+                    </div>
+                    <div class="right-floater" >
+                        <a href="https://itunes.com/de/app/decibel-ultra/id410139517?mt=8">
+                            <img alt="Decibel Ultra" src="static/images/icon3.png"/>
+                        </a>
+                    </div>
+                </p>
+                <p>
+                    Lärmwerte kartieren in der Collector App for ArcGIS
+                </p>
+                <p>
+                    Öffnen der Gruppe "GeoSchool MegaGEOGame PlayerApps" und starten der App
+                    <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=faa8dc2d7da945afa7ec443aedc27cac">"MegaGEOGame CA Level 3 - Lärmwerte"</a>
+                </p>
+                <div class="row">
+		            <div class="col-md-9">
+		                <div class="loudness">
+		                    <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=faa8dc2d7da945afa7ec443aedc27cac">
+		                      <img alt="loud" src="static/images/slug-laerm.jpg" class="img-responsive"/ id="loudness">
+		                    </a>  
+		                </div>
+		            </div>
+		        </div>
+                <p>
+                    Kartiere über GPS mit dem Template "Level3_Lärmwerte" den Dezibelwert sowie deine Klasse.<br>
+                    Verwende für den Dezibelwert den Wert, den die App als Durchschnittslärmwert angibt. Füge als Beweis
+                    der Erfassung ein Foto mit der Fotoattachmentfunktion hinzu.
+                </p>
+                <h4>
+                    Bewertung:
+                </h4>
+                <p>
+                    Die Jury liest die Werte raus und prüft anhand den Fotos stichprobenmässig die Richtigkeit der Kartierung.
+                </p>
+                <p>
+                    Die Punktzahl für das Level 3 berechnet sich wie folgt:<br>
+                    Die 5 lautesten gemessenen Lärmwerte in Dezibel werden addiert und mit der Gesamtanzahl kartierter Lärmquellen multipliziert.
+                    Diese Zahl wird dann durch 10 geteilt und ergibt die Punktzahl für das Level 3.
+                </p>
+                <p>
+                    Beispiel: Die 5 lautesten Punkte sind 99, 98, 93, 105 und 105 Dezibel laut, die Klasse hat insgesamt 40 Lärmquellen erfasst.<br>
+                    Es ergeben sich: ((99 + 98 + 93 + 105 + 105) * 40) / 10 = 1600 Punkte.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="map-row">
+        <div class="col-md-6 col-md-offset-3" id="map-row-3">
+            <iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/home/webmap/embedViewer.html?webmap=40939fa5596f447390eea8ba366ab372&amp;extent=7.4208,46.9366,7.4763,46.9618"></iframe>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

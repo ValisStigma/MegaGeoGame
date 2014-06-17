@@ -1,0 +1,110 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level5.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Level 5
+                </h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <div class="centered">
+                    <a href="/instruction" role="button" class="btn btn-primary btn-lg btn-int" id="instr-button">Zurück</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>
+                    Mappt euer Schullogo / ein beliebiges Zeichen
+                </h3>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                
+                <h4>
+                    Aufgabenstellung:
+                </h4>
+                <p>
+                    Es soll euer Schullogo, Klassenzeichen oder sonst ein innovatives Design mit einem möglichst
+                    grossen Durchmesser innerhalb des Sektors kartiert werden.<br>
+                    Jeder Teilnehmer repräsentiert einen Stützpunkt des Logos. Jeder kartiert also seinen Standpunkt
+                    anhand des GPS-Signals. Zusammen mit den Punkten der anderen Mitglieder der Klasse ergibt das ein Logo.
+                    Damit die Jury überprüfen kann, ob der gesetze Punkt auch wirklich mit dem Standort übereinstimmt ist
+                    folgendes Vorgehen zwingend notwendig:<br>
+                    Stell dich an die Stelle, wo dein Stützpunkt für das Logo zu liegen kommen soll. Stell das GPS deines
+                    Devices ein und setze den Punkt genau dort. Mach einen Screenshot deines Bildschirms als Beweis, dass das
+                    GPS-Signal mit deinem Standpunkt übereinstimmt. Mappe deinen Punkt im Collector-App und füge den Screenshot
+                    als Attachment hinzu (Foto aus Bibliothek). Sichere den neu hinzugefügten Punkt. Sobald die Zeit abgelaufen ist,
+                    und der Ampel-Layer auf rot schaltet, ist die Aufgabe beendet. Zu diesem Zeitpunkt macht die Jury einen Screenshot
+                    und wertet später das Bild, das sich dann zeigt.
+                </p>
+                <h4>
+                    Vorgehen:
+                </h4>
+                <p>
+                Besprechen des Logos innerhalb der Klasse<br>
+                Aufteilung im besprochenen Gebiet innerhalb des Sektors<br>
+                Justierung über gängige Communicators (Facebooc, WhatsApp, ...)<br>
+                Warten bis Countdown abläuft<br>
+                </p>
+                <h4>
+                    Tool:
+                </h4>
+                <p>
+                    Öffnen der Gruppe "GeoSchool MegaGEOGame PlayerApps" und starten der App 
+                    <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=f9ae1534bfa6425b8b1172baf149e719">"MegaGEOGame CA Level 5 - Logo"</a>
+                </p>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="leveler">
+                            <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=f9ae1534bfa6425b8b1172baf149e719">
+                                <img alt="light" src="static/images/level5.jpg" class="img-responsive"/ id="leveler">
+                            </a>        
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Kartiere über GPS mit dem Template "Level5_Logo" den Standort sowie deine Klasse und optional den Personennamen sowie eine Notiz.
+                </p>
+                <p>
+                    Coole Bilder dürfen gerne mit dem Instagramm-App mit #geoschoolday getaggt hochgeladen werden.
+                </p>
+                <h4>
+                    Bewertung:
+                </h4>
+                <p>
+                    Die Jury bewertet beim Ablauf der Zeit in einer Momentaufnahme (Screenshot) das Logo:
+                </p>
+                <p>
+                    Punktzahl für das Level 5 = 10000 x Fläche (Logo) in km&sup2; x Originalität (1 - 3) x Message (2 = ja, 1.8 = eher ja, 1.5 = eher nein, 1.3 = nein)
+                </p>
+                <p>
+                    Beispiel: Für 0.05 km&sup2;, Logo relativ originell (2) und Message ist ziemlich verständlich (1.8): 10000 x 0.05 x 2 x 1.8 = 1800 Punkte
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="map-row">
+        <div class="col-md-6 col-md-offset-3" id="map-row-5">
+            <iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/home/webmap/embedViewer.html?webmap=40939fa5596f447390eea8ba366ab372&amp;extent=7.4208,46.9366,7.4763,46.9618"></iframe>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

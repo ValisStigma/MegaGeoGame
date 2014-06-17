@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Skeleton for geoschoolday-webpage">
+    <meta name="author" content="GeometaLab">
+    <link rel="icon" href="static/images/icon2.ico">
+    <title>MegaGEOGame</title>
+    <link href="/static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/static/skeleton.css" rel="stylesheet">
+    
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="container" id=head-container>
+        <div class="row" id="header-row">
+            <div class="col-md-3" id="title-col">
+                <a href="/" id="titleSet">
+                    <h1>MegaGEOGame</h1>
+                    <div class="sub-header"></div>
+                </a>
+            </div> 
+            <div class="col-md-6">
+                <div class="centered">
+                    <button class="btn btn-primary btn-lg btn-int invisible-button" id="live-button">Back to live-mode</button>  
+                </div>
+            </div>
+	        <div class="col-md-3" id="sogi-col">
+                <div class="geosummit-logo">
+                    <a href="http://www.geosummit.ch/">
+                        <img alt="GEO-Summit" src="static/images/geo-summit.jpg" class="img-responsive"/ id="geosummit-logo">         
+                    </a>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="container" >
+        <div class="row" id="footer-container">
+            <div class="col-md-2">
+                <div class="sogi-logo">
+                    <a href="http://www.sogi.ch/">
+                        <img alt="Sogi" src="static/images/sogi_rgb.jpg" />         
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <p class="copyright">
+                    Powered by
+                </p>
+            </div> 
+	        <div class="col-md-3">
+                <div class="hsr-logo">
+                    <a href="http://www.ifs.hsr.ch/Geometa-Lab.12520.0.html">
+                        <img alt="Geometa Lab" src="static/images/logo-hsr.jpg" />         
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="esri-logo">
+                    <a href="http://www.esri.ch/">
+                        <img alt="ESRI" src="static/images/esriLogo.jpg" />         
+                    </a>
+                </div>
+            </div>        
+        </div>    
+    </div>          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/static/dist/js/bootstrap.min.js"></script>
+    <script src="/static/docs/assets/js/docs.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
+    <script src="/static/live_mode.js"></script>
+  </body>
+</html>

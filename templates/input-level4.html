@@ -1,0 +1,92 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level4.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Level 4
+                </h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <div class="centered">
+                    <a href="/instruction" role="button" class="btn btn-primary btn-lg btn-int" id="instr-button">Zurück</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>
+                    Weisse Socken
+                </h3>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                
+                <h4>
+                    Aufgabenstellung:
+                </h4>
+                <p>
+                    Es sollen möglichst viele Personen gefunden werden, die gerade weisse Socken tragen.<br>
+                    Es dürfen beliebige Passanten höflich angefragt werden. Es soll auch erklärt werden, dass die Aktion Teil
+                    des MegaGEOGames ist.
+                </p>
+                <h4>
+                    Tool:
+                </h4>
+                <p>
+                    Öffnen der Gruppe "GeoSchool MegaGEOGame PlayerApps" und starten 
+                    der App <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=765493d1081a44629d35bfbd137b8b76">"MegaGEOGame CA Level 4 - WhiteSocks"</a>
+                </p>
+                <div class="row">
+		            <div class="col-md-9">
+		                <div class="white-shoe1">
+		                    <a href="http://schoolgis.maps.arcgis.com/home/item.html?id=765493d1081a44629d35bfbd137b8b76">
+		                      <img alt="Socks" src="static/images/white-shoe.jpg" class="img-responsive"/ id="white-shoe1">
+		                    </a>     
+		                </div>
+		            </div>
+		        </div>
+		        <p>
+		          Kartier über GPS mit dem Template "Level4_WeisseSocken" den Standort sowie deine Klasse und optional den Ortsnamen sowie eine Notiz. Füge
+		          als Beweis der Erfassung immer ein Foto mit der Fotoattachmentfunktion hinzu.
+		        </p>
+		        <p>
+		          Coole Socken dürfen auch gerne mit dem Instagramm-App mit #geoschoolday getaggt hochgeladen werden.
+		        </p>
+		        <h4>
+		          Bewertung:
+		        </h4>
+		        <p>
+		          Die Jury zählt die Anzahl Erfassungen pro Klasse und prüft anhand den Fotos stichprobenmässig die Richtigkeit der Kartierung.
+		        </p>
+		        <p>
+		          Die Nummer der erfassten Socken multipliziert mit 100 ergibt die Punktzahl für das Level 4.
+		        </p>
+		        <p>
+		          Beispiel: 40 erfasste Socken mit Fotos * 100 = 4000 Punkte
+		        </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="map-row">
+        <div class="col-md-6 col-md-offset-3" id="map-row-4">
+            <iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/home/webmap/embedViewer.html?webmap=40939fa5596f447390eea8ba366ab372&amp;extent=7.4208,46.9366,7.4763,46.9618"></iframe>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

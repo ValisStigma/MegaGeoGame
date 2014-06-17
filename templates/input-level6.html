@@ -1,0 +1,131 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level6.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Level 6
+                </h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+            <div class="col-md-3 col-md-offset-6">
+                <div class="centered">
+                    <a href="/instruction" role="button" class="btn btn-primary btn-lg btn-int" id="instr-button">Zurück</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>
+                    Anzahl Gebäude in der Stadt Bern
+                </h3>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                
+                <h4>
+                    Aufgabenstellung:
+                </h4>
+                <p>
+                    Wieviele Gebäude* befinden sich in der Stadt Bern?
+                </p>
+                <p>
+                    Es soll die Anzahl der Objekte in der Stadt Bern geschätzt werden und die absolute Zahl in das unten folgende Eingabefeld mit Zugehörigkeit der Klasse
+                    eingegeben werden.<br>
+                    Es müssen total 25 Schätzungen abgegeben werden. Wenn in der Klasse weniger als 25 Schülerinnen und Schüler sind, müssen die restlichen 
+                    Schätzungen noch ergänzt werden.
+                </p>
+                <p>
+                    <em>*Unter Gebäude fallen Objekte folgender Attribute: Abgelegener Gasthof, Gebäude / Einzelhaus, Hütte, Kirche, Kühlturm,
+                    Perrondach, Schiessstand, Schützenhaus, Schloss, Burg, Station / ÖV Haltestelle, Treibhaus</em>
+                </p>
+                <div class="row" id="map-row-6">
+		            <div class="col-md-6 col-md-offset-3">
+		                <iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/home/webmap/embedViewer.html?webmap=3493573e40b14f7f9bfb65608909c59b&amp;extent=7.1967,46.8547,7.6399,47.0558"></iframe>
+		            </div>
+		        </div>
+                <div class="row" id="form-row">
+		            <div class="col-md-3">
+		                <p>
+		                    <div class="centered">
+		                        <div class="form-group">
+		                            <label for="classSelector">Klasse</label>      
+		                            <select class="form-control" id="classSelector" name="class_number">
+		                                <option value="default">...</option>
+		                                {% for class in classes %}
+		                                <option>{{ class }}</option>
+		                                {% endfor %}
+		                            </select>
+		                        </div>          
+		                    </div>
+		                </p>
+		            </div>
+		            <div class="col-md-3">
+		                <p>
+		                    <div class="centered">
+		                        <div class="form-group">
+		                            <label for="estimate-input">Schätzung</label>
+		                            <input type="text" id="estimate-input" class ="form-control" name="estimate">
+		                        </div>
+		                    </div>
+		                </p>
+		            </div>
+		            <div class="col-md-3">
+		                <p>
+		                    <div class="centered">
+		                        <button class="btn btn-primary btn-lg btn-int" id="submit-button">Eingabe</button>  
+		                    </div>
+		                </p>
+		            </div>
+		            
+		        </div>
+		        <div class="row" id="invisible-row">
+		            <div id="result"></div>
+		        </div>
+                <h4>
+                    Bewertung:
+                </h4>
+                <p>
+                    Der Mittelwert aller Zahlenwerte pro Gruppe ergibt das Ergebnis.
+                </p>
+                <p>
+                    Die Ergebnisse werden mit dem Lösungswert verglichen.<br>
+                    Die Punktanzahl für das Level 6 ergibt sich aus 10000 - dem absoluten Betrag vom Delta (Ergebnis - Lösungswert).
+                </p>
+                <p>
+                    Beispiel: 10000 - (|16000 - 18000|) = 10000 - 2000 = 8000 Punkte
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script type=text/javascript>
+        $(function () {
+            "use strict";
+            $('button#submit-button').bind('click', function () {
+                var max = document.getElementById("classSelector").selectedIndex;
+                $.getJSON('/_level_6_submit', {
+                    class_num: max,
+                    estimate: $('input[name="estimate"]').val()
+                }, function (data) {
+                    $("#result").text(data.result);
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

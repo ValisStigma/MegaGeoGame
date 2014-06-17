@@ -1,0 +1,85 @@
+{% extends "skeleton.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="/static/content.css" rel="stylesheet">
+    <link href="/static/instruction.css" rel="stylesheet">
+    <link href="/static/input-level1.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>Matching</h2>
+                <div class="sub-header s-header-inst"></div>
+            </div>
+        </div>
+        <div class="row" id="form-row">
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <div class="form-group">
+                            <label for="classSelector">Class</label>      
+                            <select class="form-control" id="classSelector" name="class_points">
+                                <option value="default">...</option>
+                                {% for class in classes %}
+                                <option>{{ class }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>          
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <div class="form-group">
+                            <label for="matchSelector">color</label>
+                            <select class="form-control" id="matchSelector" name="class_points">
+	                            <option>Red</option>
+	                            <option>Green</option>
+	                            <option>Yellow</option>
+	                            <option>Purple</option>
+	                            <option>Blue</option>
+	                            <option>Orange</option>
+                            </select>
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <div class="centered">
+                        <button class="btn btn-primary btn-lg btn-int" id="submit-button">Submit</button>  
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div class="row" id="invisible-row">
+            <div id="result"></div>
+        </div>
+    </div>
+    <div class="seps"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script type=text/javascript>
+	    $(function () {
+	        "use strict";
+	        $('button#submit-button').bind('click', function () {
+	            var class_num, match;
+	            class_num = document.getElementById("classSelector").selectedIndex;
+	            match = document.getElementById("matchSelector").selectedIndex;
+	            $.getJSON('/match_submit', {
+	                class_num: class_num,
+	                match: match
+	            }, function (data) {
+	                $("#result").text(data.result);
+	            });
+	            return false;
+	        });
+	    });
+    </script>
+{% endblock %}

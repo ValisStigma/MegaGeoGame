@@ -23,9 +23,7 @@ APP = Flask(__name__)
 SCRAPER = ArcgisScraper()
 GEOMETRYHANDLER = GeometryHandler()
 DATABASE_URL = (
-    '''postgres://xlxjgxvywpntgl:YjiDfL05twSFhc-
-    l6BAhyDegl8@ec2-54-217-238-93.eu-west-1.com
-    pute.amazonaws.com:5432/d4drrihjmrehu3'''
+    '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
     )
 urlparse.uses_netloc.append("postgres")
 URL = urlparse.urlparse(os.environ['DATABASE_URL'])

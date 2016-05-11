@@ -68,39 +68,49 @@
       <file leaf-file-name="mega_geo_game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15741">
-              <caret line="25" column="128" selection-start-line="25" selection-start-column="128" selection-end-line="25" selection-end-column="128" />
+            <state relative-caret-position="401">
+              <caret line="364" column="24" selection-start-line="364" selection-start-column="24" selection-end-line="364" selection-end-column="24" />
               <folding>
-                <marker date="1462952670270" expanded="true" signature="2204:2248" placeholder="SELECT point... classes" />
-                <marker date="1462952670270" expanded="true" signature="2282:2330" placeholder="UPDATE class... " />
-                <marker date="1462952670270" expanded="true" signature="3330:3377" placeholder="UPDATE class... " />
-                <marker date="1462952670270" expanded="true" signature="5330:5363" placeholder="SELECT match... " />
-                <marker date="1462952670270" expanded="true" signature="5627:5678" placeholder="SELECT match... " />
-                <marker date="1462952670270" expanded="true" signature="5849:5896" placeholder="UPDATE class... " />
-                <marker date="1462952670270" expanded="true" signature="11471:11509" placeholder="SELECT count... estimate_class_" />
-                <marker date="1462952670270" expanded="true" signature="11536:11574" placeholder="SELECT estim... estimate_class_" />
-                <marker date="1462952670270" expanded="true" signature="11655:11695" placeholder="SELECT count... estimate_6_class_" />
-                <marker date="1462952670270" expanded="true" signature="11722:11762" placeholder="SELECT estim... estimate_6_class_" />
-                <marker date="1462952670270" expanded="true" signature="12377:12419" placeholder="SELECT name classes" />
-                <marker date="1462952670270" expanded="true" signature="12949:12997" placeholder="UPDATE level... " />
-                <marker date="1462952670270" expanded="true" signature="13146:13193" placeholder="SELECT has_g... level6" />
-                <marker date="1462952670270" expanded="true" signature="14059:14109" placeholder="UPDATE level... " />
-                <marker date="1462952670270" expanded="true" signature="14886:14927" placeholder="SELECT meter... level2" />
-                <marker date="1462952670270" expanded="true" signature="14963:15008" placeholder="UPDATE level... " />
-                <marker date="1462952670270" expanded="true" signature="15112:15152" placeholder="SELECT numb level3" />
-                <marker date="1462952670270" expanded="true" signature="15188:15232" placeholder="UPDATE level... " />
-                <marker date="1462952670270" expanded="true" signature="15336:15377" placeholder="SELECT socks... level4" />
-                <marker date="1462952670270" expanded="true" signature="15413:15458" placeholder="UPDATE level... " />
-                <marker date="1462952670270" expanded="true" signature="17203:17243" placeholder="SELECT name classes" />
-                <marker date="1462952670270" expanded="true" signature="17500:17634" placeholder="SELECT point... " />
-                <marker date="1462952670270" expanded="true" signature="19305:19358" placeholder="SELECT instr... instructions" />
-                <marker date="1462952670270" expanded="true" signature="19508:19547" placeholder="SELECT map_l... maps" />
-                <marker date="1462952670270" expanded="true" signature="20054:20092" placeholder="SELECT count... estimate_class_" />
-                <marker date="1462952670270" expanded="true" signature="20122:20165" placeholder="INSERT INTO estimate_class_... " />
-                <marker date="1462952670270" expanded="true" signature="20215:20255" placeholder="SELECT count... estimate_6_class_" />
-                <marker date="1462952670270" expanded="true" signature="20285:20330" placeholder="INSERT INTO estimate_6_class_... " />
-                <marker date="1462952670270" expanded="true" signature="21670:21724" placeholder="UPDATE class... " />
+                <marker date="1462954294351" expanded="true" signature="2204:2248" placeholder="SELECT point... classes" />
+                <marker date="1462954294351" expanded="true" signature="2282:2330" placeholder="UPDATE class... " />
+                <marker date="1462954294351" expanded="true" signature="3330:3377" placeholder="UPDATE class... " />
+                <marker date="1462954294351" expanded="true" signature="5330:5363" placeholder="SELECT match... " />
+                <marker date="1462954294351" expanded="true" signature="5627:5678" placeholder="SELECT match... " />
+                <marker date="1462954294351" expanded="true" signature="5849:5896" placeholder="UPDATE class... " />
+                <marker date="1462954294351" expanded="true" signature="11334:11372" placeholder="SELECT count... estimate_class_" />
+                <marker date="1462954294351" expanded="true" signature="11399:11437" placeholder="SELECT estim... estimate_class_" />
+                <marker date="1462954294351" expanded="true" signature="11518:11558" placeholder="SELECT count... estimate_6_class_" />
+                <marker date="1462954294351" expanded="true" signature="11585:11625" placeholder="SELECT estim... estimate_6_class_" />
+                <marker date="1462954294351" expanded="true" signature="12240:12282" placeholder="SELECT name classes" />
+                <marker date="1462954294351" expanded="true" signature="12812:12860" placeholder="UPDATE level... " />
+                <marker date="1462954294351" expanded="true" signature="13009:13056" placeholder="SELECT has_g... level6" />
+                <marker date="1462954294351" expanded="true" signature="13922:13972" placeholder="UPDATE level... " />
+                <marker date="1462954294351" expanded="true" signature="14749:14790" placeholder="SELECT meter... level2" />
+                <marker date="1462954294351" expanded="true" signature="14826:14871" placeholder="UPDATE level... " />
+                <marker date="1462954294351" expanded="true" signature="14975:15015" placeholder="SELECT numb level3" />
+                <marker date="1462954294351" expanded="true" signature="15051:15095" placeholder="UPDATE level... " />
+                <marker date="1462954294351" expanded="true" signature="15199:15240" placeholder="SELECT socks... level4" />
+                <marker date="1462954294351" expanded="true" signature="15276:15321" placeholder="UPDATE level... " />
+                <marker date="1462954294351" expanded="true" signature="17066:17106" placeholder="SELECT name classes" />
+                <marker date="1462954294351" expanded="true" signature="17363:17497" placeholder="SELECT point... " />
+                <marker date="1462954294351" expanded="true" signature="19168:19221" placeholder="SELECT instr... instructions" />
+                <marker date="1462954294351" expanded="true" signature="19371:19410" placeholder="SELECT map_l... maps" />
+                <marker date="1462954294351" expanded="true" signature="19917:19955" placeholder="SELECT count... estimate_class_" />
+                <marker date="1462954294351" expanded="true" signature="19985:20028" placeholder="INSERT INTO estimate_class_... " />
+                <marker date="1462954294351" expanded="true" signature="20078:20118" placeholder="SELECT count... estimate_6_class_" />
+                <marker date="1462954294351" expanded="true" signature="20148:20193" placeholder="INSERT INTO estimate_6_class_... " />
+                <marker date="1462954294351" expanded="true" signature="21533:21587" placeholder="UPDATE class... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update_ranking.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/update_ranking.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -270,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462952409320</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test">
+      <created>1462952707631</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1462952707631</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -349,40 +366,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/update_ranking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15741">
-          <caret line="25" column="128" selection-start-line="25" selection-start-column="128" selection-end-line="25" selection-end-column="128" />
+        <state relative-caret-position="401">
+          <caret line="364" column="24" selection-start-line="364" selection-start-column="24" selection-end-line="364" selection-end-column="24" />
           <folding>
-            <marker date="1462952670270" expanded="true" signature="2204:2248" placeholder="SELECT point... classes" />
-            <marker date="1462952670270" expanded="true" signature="2282:2330" placeholder="UPDATE class... " />
-            <marker date="1462952670270" expanded="true" signature="3330:3377" placeholder="UPDATE class... " />
-            <marker date="1462952670270" expanded="true" signature="5330:5363" placeholder="SELECT match... " />
-            <marker date="1462952670270" expanded="true" signature="5627:5678" placeholder="SELECT match... " />
-            <marker date="1462952670270" expanded="true" signature="5849:5896" placeholder="UPDATE class... " />
-            <marker date="1462952670270" expanded="true" signature="11471:11509" placeholder="SELECT count... estimate_class_" />
-            <marker date="1462952670270" expanded="true" signature="11536:11574" placeholder="SELECT estim... estimate_class_" />
-            <marker date="1462952670270" expanded="true" signature="11655:11695" placeholder="SELECT count... estimate_6_class_" />
-            <marker date="1462952670270" expanded="true" signature="11722:11762" placeholder="SELECT estim... estimate_6_class_" />
-            <marker date="1462952670270" expanded="true" signature="12377:12419" placeholder="SELECT name classes" />
-            <marker date="1462952670270" expanded="true" signature="12949:12997" placeholder="UPDATE level... " />
-            <marker date="1462952670270" expanded="true" signature="13146:13193" placeholder="SELECT has_g... level6" />
-            <marker date="1462952670270" expanded="true" signature="14059:14109" placeholder="UPDATE level... " />
-            <marker date="1462952670270" expanded="true" signature="14886:14927" placeholder="SELECT meter... level2" />
-            <marker date="1462952670270" expanded="true" signature="14963:15008" placeholder="UPDATE level... " />
-            <marker date="1462952670270" expanded="true" signature="15112:15152" placeholder="SELECT numb level3" />
-            <marker date="1462952670270" expanded="true" signature="15188:15232" placeholder="UPDATE level... " />
-            <marker date="1462952670270" expanded="true" signature="15336:15377" placeholder="SELECT socks... level4" />
-            <marker date="1462952670270" expanded="true" signature="15413:15458" placeholder="UPDATE level... " />
-            <marker date="1462952670270" expanded="true" signature="17203:17243" placeholder="SELECT name classes" />
-            <marker date="1462952670270" expanded="true" signature="17500:17634" placeholder="SELECT point... " />
-            <marker date="1462952670270" expanded="true" signature="19305:19358" placeholder="SELECT instr... instructions" />
-            <marker date="1462952670270" expanded="true" signature="19508:19547" placeholder="SELECT map_l... maps" />
-            <marker date="1462952670270" expanded="true" signature="20054:20092" placeholder="SELECT count... estimate_class_" />
-            <marker date="1462952670270" expanded="true" signature="20122:20165" placeholder="INSERT INTO estimate_class_... " />
-            <marker date="1462952670270" expanded="true" signature="20215:20255" placeholder="SELECT count... estimate_6_class_" />
-            <marker date="1462952670270" expanded="true" signature="20285:20330" placeholder="INSERT INTO estimate_6_class_... " />
-            <marker date="1462952670270" expanded="true" signature="21670:21724" placeholder="UPDATE class... " />
+            <marker date="1462954294351" expanded="true" signature="2204:2248" placeholder="SELECT point... classes" />
+            <marker date="1462954294351" expanded="true" signature="2282:2330" placeholder="UPDATE class... " />
+            <marker date="1462954294351" expanded="true" signature="3330:3377" placeholder="UPDATE class... " />
+            <marker date="1462954294351" expanded="true" signature="5330:5363" placeholder="SELECT match... " />
+            <marker date="1462954294351" expanded="true" signature="5627:5678" placeholder="SELECT match... " />
+            <marker date="1462954294351" expanded="true" signature="5849:5896" placeholder="UPDATE class... " />
+            <marker date="1462954294351" expanded="true" signature="11334:11372" placeholder="SELECT count... estimate_class_" />
+            <marker date="1462954294351" expanded="true" signature="11399:11437" placeholder="SELECT estim... estimate_class_" />
+            <marker date="1462954294351" expanded="true" signature="11518:11558" placeholder="SELECT count... estimate_6_class_" />
+            <marker date="1462954294351" expanded="true" signature="11585:11625" placeholder="SELECT estim... estimate_6_class_" />
+            <marker date="1462954294351" expanded="true" signature="12240:12282" placeholder="SELECT name classes" />
+            <marker date="1462954294351" expanded="true" signature="12812:12860" placeholder="UPDATE level... " />
+            <marker date="1462954294351" expanded="true" signature="13009:13056" placeholder="SELECT has_g... level6" />
+            <marker date="1462954294351" expanded="true" signature="13922:13972" placeholder="UPDATE level... " />
+            <marker date="1462954294351" expanded="true" signature="14749:14790" placeholder="SELECT meter... level2" />
+            <marker date="1462954294351" expanded="true" signature="14826:14871" placeholder="UPDATE level... " />
+            <marker date="1462954294351" expanded="true" signature="14975:15015" placeholder="SELECT numb level3" />
+            <marker date="1462954294351" expanded="true" signature="15051:15095" placeholder="UPDATE level... " />
+            <marker date="1462954294351" expanded="true" signature="15199:15240" placeholder="SELECT socks... level4" />
+            <marker date="1462954294351" expanded="true" signature="15276:15321" placeholder="UPDATE level... " />
+            <marker date="1462954294351" expanded="true" signature="17066:17106" placeholder="SELECT name classes" />
+            <marker date="1462954294351" expanded="true" signature="17363:17497" placeholder="SELECT point... " />
+            <marker date="1462954294351" expanded="true" signature="19168:19221" placeholder="SELECT instr... instructions" />
+            <marker date="1462954294351" expanded="true" signature="19371:19410" placeholder="SELECT map_l... maps" />
+            <marker date="1462954294351" expanded="true" signature="19917:19955" placeholder="SELECT count... estimate_class_" />
+            <marker date="1462954294351" expanded="true" signature="19985:20028" placeholder="INSERT INTO estimate_class_... " />
+            <marker date="1462954294351" expanded="true" signature="20078:20118" placeholder="SELECT count... estimate_6_class_" />
+            <marker date="1462954294351" expanded="true" signature="20148:20193" placeholder="INSERT INTO estimate_6_class_... " />
+            <marker date="1462954294351" expanded="true" signature="21533:21587" placeholder="UPDATE class... " />
           </folding>
         </state>
       </provider>

@@ -362,12 +362,7 @@ def update_ranking():
     stats = get_classes_in_statistics(curr_level, curr_state)
     ranking = get_ranking()
     return jsonify(
-        place1=ranking[0],
-        place2=ranking[1],
-        place3=ranking[2],
-        place4=ranking[3],
-        place5=ranking[4],
-        place6=ranking[5],
+        ranking=ranking,
         instruction=stats
         )
 

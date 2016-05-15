@@ -1,0 +1,80 @@
+DELETE FROM classes
+DELETE FROM level_1
+DELETE FROM instructions
+DELETE FROM maps
+DELETE FROM level1
+DELETE FROM level2
+DELETE FROM level3
+DELETE FROM level4
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('A1', 0, 0, 0, 'Klasse A', 1)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('B1', 0, 0, 0, 'Klasse B', 2)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('C1', 0, 0, 0, 'Klasse C', 3)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('D1', 0, 0, 0, 'Klasse D', 4)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('E1', 0, 0, 0, 'Klasse E', 5)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('F1', 0, 0, 0, 'Klasse F', 6)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('G1', 0, 0, 0, 'Klasse G', 4)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('H1', 0, 0, 0, 'Klasse H', 5)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('I1', 0, 0, 0, 'Klasse I', 6)
+INSERT INTO classes("number", points, trend, match, name, former_place) VALUES ('J1', 0, 0, 0, 'Klasse J', 6)
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('A1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('B1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('C1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('D1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('E1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('F1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('G1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('H1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('I1', 0, 0);
+INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('J1', 0, 0);
+INSERT INTO public.instructions(level, instruction) VALUES (1, 'Finde in der Schweizer den Standort, der eine möglichst grossen Aussichtsfläche im Umkreis von 15km bietet.');
+INSERT INTO public.instructions(level, instruction) VALUES (2, 'Weise die 3 Bilder in deinem Sektor an den richtigen drei der 20 Standorten zu.');
+INSERT INTO public.instructions(level, instruction) VALUES (3, 'Wild bicycles: Wir räumen Bern auf. Mappe alle wild parkierten Velos in deinem Sektor. Beweis dein Fund mit einem Bildattachment samt GeoSummit-Ticket.');
+INSERT INTO public.instructions(level, instruction) VALUES (4, 'Finde die Droids (Androiduser)! Beweis dein Fund mit einem Bildattachment samt GeoSummit-Ticket.');
+INSERT INTO public.instructions(level, instruction) VALUES (5, 'Gleichseitiges Dreieck-Mapping: Mit 3 GPS-Koordinate von Tractalis-Trackern ein gleichseitiges, Dreieck bauen. Bewertung: nach 10 Minuten');
+INSERT INTO public.instructions(level, instruction) VALUES (6, 'Finale Mission im GeoSchoolForum What3Words Puzzle:');
+INSERT INTO public.maps(level, map_link) VALUES(1, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=2f0d96eba8564d5eab88b1dae358bc48&amp;extent=4.5346,45.1043,12.648,48.2574&amp"></iframe>')
+INSERT INTO public.maps(level, map_link) VALUES(2, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=912719c6c8b04f9fb9b4878811e1c776&amp;extent=7.4133,46.9384,7.4766,46.9629&amp"></iframe>')
+INSERT INTO public.maps(level, map_link) VALUES(3, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=5fb052f926004bfc8310a273eaf0bf76&amp;extent=7.4172,46.9359,7.4805,46.9605&amp"></iframe>')
+INSERT INTO public.maps(level, map_link) VALUES(4, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=c4a2fbdd7aa84ed3a8dc814cf12f9049&amp;extent=7.416,46.9381,7.4793,46.9627&amp"></iframe>')
+INSERT INTO public.maps(level, map_link) VALUES(5, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=84b2b78d2a8b468a9e36d995fdcbf228&amp;extent=6.8202,46.8197,7.8344,47.2116&amp"></iframe>')
+INSERT INTO public.maps(level, map_link) VALUES(6, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/Embed/index.html?webmap=2f0d96eba8564d5eab88b1dae358bc48&amp;extent=4.5346,45.1043,12.648,48.2574&amp"></iframe>')
+INSERT INTO level3(class, numb) VALUES ('A1', 0);
+INSERT INTO level3(class, numb) VALUES ('B1', 0);
+INSERT INTO level3(class, numb) VALUES ('C1', 0);
+INSERT INTO level3(class, numb) VALUES ('D1', 0);
+INSERT INTO level3(class, numb) VALUES ('E1', 0);
+INSERT INTO level3(class, numb) VALUES ('F1', 0);
+INSERT INTO level3(class, numb) VALUES ('G1', 0);
+INSERT INTO level3(class, numb) VALUES ('H1', 0);
+INSERT INTO level3(class, numb) VALUES ('I1', 0);
+INSERT INTO level3(class, numb) VALUES ('J1', 0);
+INSERT INTO level4(class, socks) VALUES ('A1', 0);
+INSERT INTO level4(class, socks) VALUES ('B1', 0);
+INSERT INTO level4(class, socks) VALUES ('C1', 0);
+INSERT INTO level4(class, socks) VALUES ('D1', 0);
+INSERT INTO level4(class, socks) VALUES ('E1', 0);
+INSERT INTO level4(class, socks) VALUES ('F1', 0);
+INSERT INTO level4(class, socks) VALUES ('G1', 0);
+INSERT INTO level4(class, socks) VALUES ('H1', 0);
+INSERT INTO level4(class, socks) VALUES ('I1', 0);
+INSERT INTO level4(class, socks) VALUES ('J1', 0);
+INSERT INTO level1(class, points) VALUES ('A1', 0);
+INSERT INTO level1(class, points) VALUES ('B1', 0);
+INSERT INTO level1(class, points) VALUES ('C1', 0);
+INSERT INTO level1(class, points) VALUES ('D1', 0);
+INSERT INTO level1(class, points) VALUES ('E1', 0);
+INSERT INTO level1(class, points) VALUES ('F1', 0);
+INSERT INTO level1(class, points) VALUES ('G1', 0);
+INSERT INTO level1(class, points) VALUES ('H1', 0);
+INSERT INTO level1(class, points) VALUES ('I1', 0);
+INSERT INTO level1(class, points) VALUES ('J1', 0);
+INSERT INTO level2(class, points) VALUES ('A1', 0);
+INSERT INTO level2(class, points) VALUES ('B1', 0);
+INSERT INTO level2(class, points) VALUES ('C1', 0);
+INSERT INTO level2(class, points) VALUES ('D1', 0);
+INSERT INTO level2(class, points) VALUES ('E1', 0);
+INSERT INTO level2(class, points) VALUES ('F1', 0);
+INSERT INTO level2(class, points) VALUES ('G1', 0);
+INSERT INTO level2(class, points) VALUES ('H1', 0);
+INSERT INTO level2(class, points) VALUES ('I1', 0);
+INSERT INTO level2(class, points) VALUES ('J1', 0);

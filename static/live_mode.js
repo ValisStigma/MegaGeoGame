@@ -6,18 +6,13 @@ $(function () {
         state = current_state;
         new_level = current_level;
         state_text = '';
-        if (state === 1) {
+        if (state === 'schwarz') {
             state_text = 'Instruction <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
         }
-        if (state === 2) {
+        if (state === 'weiss') {
             state_text = 'Playing <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
-        }
-        if (state === 3) {
-            state_text = 'Stop <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/stop-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
         }
@@ -32,18 +27,13 @@ $(function () {
             $("#legendholder").html(datas.image);
         });
         state_text = '';
-        if (state === 1) {
+        if (state === 'schwarz') {
             state_text = 'Instruction <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
         }
-        if (state === 2) {
+        if (state === 'weiss') {
             state_text = 'Playing <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
-        }
-        if (state === 3) {
-            state_text = 'Stop <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/stop-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
         }

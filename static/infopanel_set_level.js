@@ -13,34 +13,16 @@ function update() {
     new_level = current_level;
     if (curr_level !== new_level || (curr_level === 1 && curr_state !== state)) {
         state_text = '';
-        if (state === 1) {
-            state_text = 'Instruction <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
+        if (state === 'schwarz') {
+            state_text = 'Inaktiv <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
             $("#statistics-titel").text("Live Statistics");
         }
-        if (state === 2) {
-            state_text = 'Playing <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
+        if (state === 'weiss') {
+            state_text = 'Läuft <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
-            $("#statistics-titel").text("Live Statistics");
-        }
-        if (state === 3) {
-            if (new_level === 1) {
-                $("#statistics-titel").text("Live Statistics - Point Count: 1574");
-            } else if (new_level === 6) {
-                $("#statistics-titel").text("Live Statistics - # Of Houses: 8797");
-            } else {
-                $("#statistics-titel").text("Live Statistics");
-            }
-            state_text = 'Stop <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/stop-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
-        }
-        if (state === 0) {
-            state_text = '';
-            $("#instruction-header").removeClass('instruction-header-trafficlight');
-            $("#instruction-header").addClass('instruction-header-non-trafficlight');
             $("#statistics-titel").text("Live Statistics");
         }
         $("#rect" + curr_level.toString()).removeClass('rect-curr');
@@ -56,29 +38,17 @@ function update() {
     }
     if (curr_state !== state) {
         state_text = '';
-        if (state === 1) {
+        if (state === 'schwarz') {
             state_text = 'Instruction <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
             $("#statistics-titel").text("Live Statistics");
         }
-        if (state === 2) {
+        if (state === 'weiss') {
             state_text = 'Playing <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
             $("#instruction-header").removeClass('instruction-header-non-trafficlight');
             $("#instruction-header").addClass('instruction-header-trafficlight');
             $("#statistics-titel").text("Live Statistics");
-        }
-        if (state === 3) {
-            if (new_level === 1) {
-                $("#statistics-titel").text("Live Statistics - Point Count: 1574");
-            } else if (new_level === 6) {
-                $("#statistics-titel").text("Live Statistics - # Of Houses: 8797");
-            } else {
-                $("#statistics-titel").text("Live Statistics");
-            }
-            state_text = 'Stop <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/stop-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
         }
         if (state === 0) {
             state_text = '';

@@ -15,22 +15,31 @@ GEOMETRYHANDLER = GeometryHandler()
 DATABASE_URL = (
     '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
 )
+
 urlparse.uses_netloc.append("postgres")
-# URL = urlparse.urlparse(os.environ['DATABASE_URL'])
+URL = urlparse.urlparse(os.environ['DATABASE_URL'])
 
 CONNECTION = psycopg2.connect(
-    database="d6ln3gnquqodqq",
-    user="dgibhwjhbemyxu",
-    password="rFqJwYnsX48PtWyR8LUgVHH0bE",
-    host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
-    port="5432"
-)
+    database=URL.path[1:],
+    user=URL.username,
+    password=URL.password,
+    host=URL.hostname,
+    port=URL.port
+    )
+# urlparse.uses_netloc.append("postgres")
+# # URL = urlparse.urlparse(os.environ['DATABASE_URL'])
+#
+# CONNECTION = psycopg2.connect(
+#     database="d6ln3gnquqodqq",
+#     user="dgibhwjhbemyxu",
+#     password="rFqJwYnsX48PtWyR8LUgVHH0bE",
+#     host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
+#     port="5432"
+# )
 
 CURSOR = CONNECTION.cursor()
-
-QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcH"
-                   "z3yZdtEVu/ArcGIS/rest/services/MegaGeoGame_Level", "_State/FeatureServer/0/query?where"
-                                                                       "=1%3D1&outFields=GeoGameState&f=pjson"]
+QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
+                                                                       "=1%3D1&outFields=Status&f=pjson"]
 
 QUERY_LEVEL_1 = [
     "http://services1.arcgis.com/6RDtDcHz3yZdtEVu/arcgis/rest/services/mgg2016_m1_sek1/FeatureServer/0/query?where=Gruppe%3D%27",
@@ -79,7 +88,7 @@ PLAYER_IDS = [
     'J1'
 ]
 VALID_LEVELS = [1, 2, 3, 4, 5, 6]
-VALID_STATES = [1, 2]
+VALID_STATES = ['weiss', 'schwarz']
 TREND_HTML = ["<img style=\"float:right; margin-top: -5px;\" " +
               "alt=\"trend\" src=\"static/images/", ".png\" />"]
 
@@ -296,41 +305,38 @@ def elements_for_manual_mode(curr_level, clicked_level):
 
 @APP.route('/_update_level')
 def update():
-    try:
-        curr_level = int(request.args.get('current_level'))
-        curr_state = int(request.args.get('current_state'))
-        if not curr_level in VALID_LEVELS:
-            curr_level = 0
-        instruction_panel_text = get_instruction(curr_level)
-        instruction_panel_heading = ''
-        if curr_level == 0:
-            map_iframe = get_map(1)
-            instruction_panel_heading = 'A game with 6 levels'
-            image_html = get_legend(0)
-        elif curr_level == 1 and (curr_state == 1 or curr_state == 2):
-            map_iframe = get_map(10)
-            image_html = get_legend(1.1)
-        else:
-            map_iframe = get_map(curr_level)
-        if curr_level == 1 and (curr_state == 3 or curr_state == 3):
-            image_html = get_legend(1.3)
-        elif curr_level < 7 and curr_level > 1:
-            image_html = get_legend(curr_level)
-        return jsonify(
-            instruction_panel_heading=instruction_panel_heading,
-            instruction=instruction_panel_text,
-            map=map_iframe,
-            image=image_html
-        )
-    except Exception:
-        return jsonify(
-            result=traceback.format_exc())
+    curr_level = int(request.args.get('current_level'))
+    curr_state = request.args.get('current_state')
+    if not curr_level in VALID_LEVELS:
+        curr_level = 0
+    instruction_panel_text = get_instruction(curr_level)
+    instruction_panel_heading = ''
+    if curr_level == 0:
+        map_iframe = get_map(1)
+        instruction_panel_heading = 'A game with 6 levels'
+        image_html = get_legend(0)
+    elif curr_level == 1 and (curr_state == 'weiss' or curr_state == 'schwarz'):
+        map_iframe = get_map(1)
+        image_html = get_legend(1.1)
+    else:
+        map_iframe = get_map(curr_level)
+    if curr_level == 1 and (curr_state == 'schwarz'):
+        image_html = get_legend(1.3)
+    elif curr_level < 7 and curr_level > 1:
+        image_html = get_legend(curr_level)
+    return jsonify(
+        instruction_panel_heading=instruction_panel_heading,
+        instruction=instruction_panel_text,
+        map=map_iframe,
+        image=image_html
+    )
+
 
 
 @APP.route('/_get_current_ranking')
 def update_ranking():
     curr_level = int(request.args.get('current_level'))
-    curr_state = int(request.args.get('current_state'))
+    curr_state = request.args.get('current_state')
     stats = get_classes_in_statistics(curr_level, curr_state)
     ranking = get_ranking()
     return jsonify(
@@ -345,19 +351,15 @@ def get_current_level():
     if not curr_level == 0:
         pre_query = str(curr_level).join(QUERY_GET_LEVEL)
         curr_layer = SCRAPER.get_json(pre_query)
-        state = int(
-            curr_layer['features'][0]['attributes']['GeoGameState']
-        )
-        if state != 3 and state in VALID_STATES:
+        state = curr_layer['features'][0]['attributes']['Status']
+        if state != 'schwarz' and state in VALID_STATES:
             return jsonify(level=curr_level, state=state)
     for i in range(1, 7):
         if i != curr_level:
             query = str(i).join(QUERY_GET_LEVEL)
             curr_layer = SCRAPER.get_json(query)
-            state = int(
-                curr_layer['features'][0]['attributes']['GeoGameState']
-            )
-            if state != 3 and state in VALID_STATES:
+            state = curr_layer['features'][0]['attributes']['Status']
+            if state != 'schwarz' and state in VALID_STATES:
                 return jsonify(level=i, state=state)
     if curr_level in VALID_LEVELS:
         return jsonify(level=curr_level, state=3)
@@ -366,30 +368,26 @@ def get_current_level():
 
 
 def get_classes_in_statistics(curr_level, curr_state):
-    classes_html = []
     data_array = []
-    class_array = CLASSES_IN_ORDER
 
     if curr_level == 1:
         scrape_query = QUERY_LEVEL_1
         select_old_points = "SELECT points FROM level1 WHERE class = %s"
         update_level_score = "UPDATE level1 SET points = %s WHERE class = %s"
-        for i in range(0, NUMBER_OF_PLAYERS):
-            features = SCRAPER.get_json(
-                str(PLAYER_IDS[i]).join(scrape_query))['features']
+        for player_id in PLAYER_IDS:
+            features = SCRAPER.get_json(player_id.join(scrape_query))['features']
             level_points = 0
             if len(features) > 0:
                 level_points = features[0]['attributes']['Flaeche']
-            CURSOR.execute(select_old_points, (PLAYER_IDS[i],))
+            CURSOR.execute(select_old_points, (player_id,))
             old_points = CURSOR.fetchone()[0]
-            CURSOR.execute(QUERY_POINTS, (PLAYER_IDS[i],))
+            CURSOR.execute(QUERY_POINTS, (player_id,))
             curr_points = CURSOR.fetchone()[0]
             new_points = level_points - old_points + curr_points
-            point_data = str(level_points)
             if old_points < level_points:
-                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, PLAYER_IDS[i]))
-                CURSOR.execute(update_level_score, (level_points, PLAYER_IDS[i]))
-            data_array.append(point_data)
+                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, player_id))
+                CURSOR.execute(update_level_score, (level_points, player_id))
+            data_array.append({"name": player_id, "points": level_points})
 
     elif curr_level == 2:
         scrape_query = QUERY_LEVEL_2
@@ -414,7 +412,8 @@ def get_classes_in_statistics(curr_level, curr_state):
             if old_points < level_points:
                 CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, PLAYER_IDS[i]))
                 CURSOR.execute(update_level_score, (level_points, PLAYER_IDS[i]))
-            data_array.append(point_data)
+            #data_array.append(point_data)
+
     elif curr_level == 3 or curr_level == 4:
         if curr_level == 3:
             scrape_query = QUERY_LEVEL_3
@@ -424,36 +423,34 @@ def get_classes_in_statistics(curr_level, curr_state):
             scrape_query = QUERY_LEVEL_4
             select_old_points = "SELECT socks FROM level4 WHERE class = %s"
             update_level_score = "UPDATE level4 SET socks = %s WHERE class = %s"
-        for i in range(0, NUMBER_OF_PLAYERS):
+        for player_id in PLAYER_IDS:
             features = SCRAPER.get_json(
-                str(PLAYER_IDS[i]).join(scrape_query))['features']
+                str(player_id).join(scrape_query))['features']
             level_points = len(features)
-            CURSOR.execute(select_old_points, (PLAYER_IDS[i],))
+            CURSOR.execute(select_old_points, (player_id,))
             old_points = CURSOR.fetchone()[0]
-            CURSOR.execute(QUERY_POINTS, (PLAYER_IDS[i],))
+            CURSOR.execute(QUERY_POINTS, (player_id,))
             curr_points = CURSOR.fetchone()[0]
             new_points = level_points - old_points + curr_points
-            point_data = str(level_points)
-            if curr_level == 3:
-                point_data += ' objects'
-            elif curr_level == 4:
-                point_data += ' socks'
             if old_points < level_points:
-                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, PLAYER_IDS[i]))
-                CURSOR.execute(update_level_score, (level_points, PLAYER_IDS[i]))
-            data_array.append(point_data)
+                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, player_id))
+                CURSOR.execute(update_level_score, (level_points, player_id))
+            data_array.append({"name": player_id, "points": level_points})
+
     else:
-        for i in range(0, NUMBER_OF_PLAYERS):
-            data_array.append("")
+        for player_id in PLAYER_IDS:
+            CURSOR.execute(QUERY_POINTS, (player_id,))
+            points = CURSOR.fetchone()[0]
+            data_array.append({"name": player_id, "points": points})
     CONNECTION.commit()
 
-    for i in range(0, NUMBER_OF_PLAYERS):
-        classes_html.append(
-            class_array[i] +
-            '<br>' +
-            data_array[i])
-    if len(classes_html) < 0:
-        return get_statistics_html(classes_html)
+    # for i in range(0, NUMBER_OF_PLAYERS):
+    #     classes_html.append(
+    #         class_array[i] +
+    #         '<br>' +
+    #         data_array[i])
+    if len(data_array) > 0:
+        return data_array #get_statistics_html(classes_html)
     else:
         return ''
 
@@ -670,5 +667,5 @@ def get_legend(level):
         return ''
 
 
-if __name__ == '__main__':
-    APP.run()
+#if __name__ == '__main__':
+#    APP.run()

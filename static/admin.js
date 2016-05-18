@@ -1,6 +1,5 @@
 
 "use strict";
-console.log('skfdklf');
 $('button#submit-button').bind('click', function () {
     var max = document.getElementById("classSelector").selectedIndex;
     $.getJSON('/_admin_relative_submit', {

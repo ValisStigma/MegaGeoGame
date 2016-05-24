@@ -5,7 +5,7 @@ function update_ranking() {
             var place1, place2, place3, place4, place5, place6;
             var ranking = data.ranking;
             for(var i = 0; i < ranking.length; i++) {
-                $("#place" + (i + 1) ).html(i + '. ' + ranking[i]);
+                $("#place" + (i + 1) ).html((i + 1) + '. ' + ranking[i]);
             }
             if(current_level === 1 && data.instruction && data.instruction !== undefined) {
                 var canvas = $('<canvas id="myChart" width="282" height="200"></canvas>');
@@ -25,10 +25,8 @@ function update_ranking() {
                         labels: labels,
                         datasets: [{
                             label: 'Points',
-                            fillColor: "rgba(220,220,220,0.5)",
-                            strokeColor: "rgba(220,220,220,0.8)",
-                            highlightFill: "rgba(220,220,220,0.75)",
-                            highlightStroke: "rgba(220,220,220,1)",
+                            fillColor: "rgba(150, 0, 0, 1)",
+                            backgroundColor: "rgba(150, 0, 0, 1)",
                             data: points
                         }]
                     },
@@ -61,10 +59,7 @@ function update_ranking() {
                         labels: labels,
                         datasets: [{
                             label: 'Bikes',
-                            fillColor: "rgba(220,220,220,0.5)",
-                            strokeColor: "rgba(220,220,220,0.8)",
-                            highlightFill: "rgba(220,220,220,0.75)",
-                            highlightStroke: "rgba(220,220,220,1)",
+                            backgroundColor: "rgba(150, 0, 0, 1)",
                             data: points
                         }]
                     },
@@ -98,10 +93,7 @@ function update_ranking() {
                         labels: labels,
                         datasets: [{
                             label: 'Android Users',
-                            fillColor: "rgba(220,220,220,0.5)",
-                            strokeColor: "rgba(220,220,220,0.8)",
-                            highlightFill: "rgba(220,220,220,0.75)",
-                            highlightStroke: "rgba(220,220,220,1)",
+                            backgroundColor: "rgba(150, 0, 0, 1)",
                             data: points
                         }]
                     },
@@ -134,11 +126,8 @@ function update_ranking() {
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Punkte',
-                            fillColor: "rgba(220,220,220,0.5)",
-                            strokeColor: "rgba(220,220,220,0.8)",
-                            highlightFill: "rgba(220,220,220,0.75)",
-                            highlightStroke: "rgba(220,220,220,1)",
+                            label: 'Points',
+                            backgroundColor: "rgba(150, 0, 0, 1)",
                             data: points
                         }]
                     },

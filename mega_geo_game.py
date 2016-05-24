@@ -6,7 +6,6 @@ import urlparse
 from operator import itemgetter
 from arcgis_scraper import ArcgisScraper
 from geometry_calculator import GeometryHandler
-import traceback
 
 APP = Flask(__name__)
 
@@ -16,6 +15,16 @@ DATABASE_URL = (
     '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
 )
 
+# urlparse.uses_netloc.append("postgres")
+# # URL = urlparse.urlparse(os.environ['DATABASE_URL'])
+#
+# CONNECTION = psycopg2.connect(
+#      database="d6ln3gnquqodqq",
+#      user="dgibhwjhbemyxu",
+#      password="rFqJwYnsX48PtWyR8LUgVHH0bE",
+#      host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
+#      port="5432"
+#  )
 urlparse.uses_netloc.append("postgres")
 URL = urlparse.urlparse(os.environ['DATABASE_URL'])
 
@@ -26,16 +35,7 @@ CONNECTION = psycopg2.connect(
     host=URL.hostname,
     port=URL.port
     )
-# urlparse.uses_netloc.append("postgres")
-# # URL = urlparse.urlparse(os.environ['DATABASE_URL'])
-#
-# CONNECTION = psycopg2.connect(
-#     database="d6ln3gnquqodqq",
-#     user="dgibhwjhbemyxu",
-#     password="rFqJwYnsX48PtWyR8LUgVHH0bE",
-#     host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
-#     port="5432"
-# )
+
 
 CURSOR = CONNECTION.cursor()
 QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
@@ -58,23 +58,10 @@ QUERY_LEVEL_4 = [
     '''%27&units=esriSRUnit_Meter&returnGeometry=true&f=pjson''']
 
 QUERY_POINTS = "SELECT points FROM classes WHERE number = %s"
+UPDATE_POINTS_QUERY = "UPDATE classes SET points = %s WHERE number = %s"
+UPDATE_TREND = "UPDATE classes SET trend = %s WHERE number = %s"
+GET_PLAYER_QUERY = "SELECT points, name, match, state, former_place, trend from classes WHERE number = %s"
 
-UPDATE_POINTS_QUERY = (
-    '''UPDATE classes SET points = %s WHERE number = %s'''
-)
-POINTS_FOR_LEVEL_1 = [980, 1080, 1230, 1200, 1010, 970]
-CLASSES_IN_ORDER = [
-    'Burggraben',
-    'Kirchenfeld',
-    'Beromünster',
-    'Solothurn',
-    'Wil',
-    'Alpenquai',
-    'Test1',
-    'Test2',
-    'Test3',
-    'Test4'
-]
 PLAYER_IDS = [
     'A1',
     'B1',
@@ -94,13 +81,6 @@ TREND_HTML = ["<img style=\"float:right; margin-top: -5px;\" " +
 
 LEGEND_HTML = ["<img alt=\"Legend\" src=\"static/images/legend", ".png\" />"]
 
-STATISTICS_CELL = ['''<li class="list-group-item list-stat">''', '''</li>''']
-
-STATISTICS_COLUMN = ['''<div class="col-xs-6 stat-col"><ul class="list-group">''', '''</ul></div>''']
-
-STATISTICS_PANEL = ['''<div id="level1-stat"><div class="row sub-row" id="stat-row">''', '''</div></div>''']
-UPDATE_TREND = "UPDATE classes SET trend = %s WHERE number = %s"
-
 NUMBER_OF_PLAYERS = 10
 
 
@@ -118,11 +98,6 @@ def instructions():
 def input_level1():
     classes = get_classes()
     return render_template('input-level1.html', classes=classes)
-
-
-@APP.route('/test')
-def tester():
-    pass
 
 
 @APP.route('/input-level2')
@@ -165,11 +140,6 @@ def login():
         return render_template('admin-board.html', classes=classes)
 
 
-@APP.route('/_level_1_submit')
-def data_submitted():
-    return data_submit(1)
-
-
 @APP.route('/_admin_relative_submit')
 def relative_submit():
     class_name = request.args.get('class_num', 0, type=int)
@@ -193,11 +163,6 @@ def relative_submit():
     return jsonify(result="Deine Eingabe war erfolgreich")
 
 
-@APP.route('/_level_6_submit')
-def data_submitted6():
-    return data_submit(6)
-
-
 @APP.route('/seed_classes')
 def seed():
     x = os.getcwd()
@@ -211,85 +176,15 @@ def seed():
     return jsonify(result='''Super''')
 
 
-@APP.route('/match_submit')
-def match_submitted():
-    class_number = int(request.args.get('class_num'))
-    match = int(request.args.get('match')) + 1
-    if class_number == 0:
-        return jsonify(result="Please select a class")
-    CURSOR.execute(
-        "SELECT match, number FROM classes"
-    )
-    match_entries = CURSOR.fetchall()
-    for row in match_entries:
-        if row[0] == match and row[1] != class_number:
-            return jsonify(
-                result="This startpoint is already chosen by somebody")
-    CURSOR.execute(
-        "SELECT match, points FROM classes WHERE number = %s",
-        (class_number,)
-    )
-    query_results = CURSOR.fetchone()
-    old_match = query_results[0]
-    old_points = query_results[1]
-    CURSOR.execute(
-        "UPDATE classes SET match = %s WHERE number = %s ",
-        (match, class_number)
-    )
-    if old_match == 0:
-        new_points = old_points + POINTS_FOR_LEVEL_1[class_number - 1]
-        CURSOR.execute(
-            UPDATE_POINTS_QUERY,
-            (new_points, class_number)
-        )
-    CONNECTION.commit()
-    return jsonify(result='''Your submission has been recorded''')
-
-
-@APP.route('/matching')
-def show_match():
-    classes = get_classes()
-    return render_template('matching.html', classes=classes)
-
-
-@APP.route('/_level1_selected')
-def level_1_selected():
+@APP.route('/_level_selected')
+def level_selected():
     curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 1)
-
-
-@APP.route('/_level2_selected')
-def level2_selected():
-    curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 2)
-
-
-@APP.route('/_level3_selected')
-def level3_selected():
-    curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 3)
-
-
-@APP.route('/_level4_selected')
-def level4_selected():
-    curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 4)
-
-
-@APP.route('/_level5_selected')
-def level5_selected():
-    curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 5)
-
-
-@APP.route('/_level6_selected')
-def level6_selected():
-    curr_level = int(request.args.get('current_level'))
-    return elements_for_manual_mode(curr_level, 6)
+    level_chosen = int(request.args.get('level_chosen'))
+    return elements_for_manual_mode(curr_level, level_chosen)
 
 
 def elements_for_manual_mode(curr_level, clicked_level):
-    stats = get_classes_in_statistics(clicked_level, 3)
+    stats = get_classes_in_statistics(clicked_level)
     header = get_instruction_header(curr_level, clicked_level)
     instruction_panel_text = get_instruction(clicked_level)
     legend = get_legend(clicked_level)
@@ -332,12 +227,10 @@ def update():
     )
 
 
-
 @APP.route('/_get_current_ranking')
 def update_ranking():
     curr_level = int(request.args.get('current_level'))
-    curr_state = request.args.get('current_state')
-    stats = get_classes_in_statistics(curr_level, curr_state)
+    stats = get_classes_in_statistics(curr_level)
     ranking = get_ranking()
     return jsonify(
         ranking=ranking,
@@ -367,7 +260,7 @@ def get_current_level():
         return jsonify(level=0, state=0)
 
 
-def get_classes_in_statistics(curr_level, curr_state):
+def get_classes_in_statistics(curr_level):
     data_array = []
 
     if curr_level == 1:
@@ -388,31 +281,6 @@ def get_classes_in_statistics(curr_level, curr_state):
                 CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, player_id))
                 CURSOR.execute(update_level_score, (level_points, player_id))
             data_array.append({"name": player_id, "points": level_points})
-
-    elif curr_level == 2:
-        scrape_query = QUERY_LEVEL_2
-        select_old_points = "SELECT points FROM level2 WHERE class = %s"
-        update_level_score = "UPDATE level2 SET points = %s WHERE class = %s"
-        for i in range(0, NUMBER_OF_PLAYERS):
-            features = SCRAPER.get_json(
-                str(PLAYER_IDS[i]).join(scrape_query))['features']
-            level_points = 0
-            if len(features) > 0:
-                for feature in features:
-                    number_given = int(feature['attributes']['Nummer_Eingabe'])
-                    number_searched = int(feature['attributes']['Nummer_Loesung'])
-                    if number_given == number_searched:
-                        level_points += 1
-            CURSOR.execute(select_old_points, (PLAYER_IDS[i],))
-            old_points = CURSOR.fetchone()[0]
-            CURSOR.execute(QUERY_POINTS, (PLAYER_IDS[i],))
-            curr_points = CURSOR.fetchone()[0]
-            new_points = level_points - old_points + curr_points
-            point_data = str(level_points)
-            if old_points < level_points:
-                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, PLAYER_IDS[i]))
-                CURSOR.execute(update_level_score, (level_points, PLAYER_IDS[i]))
-            #data_array.append(point_data)
 
     elif curr_level == 3 or curr_level == 4:
         if curr_level == 3:
@@ -443,16 +311,7 @@ def get_classes_in_statistics(curr_level, curr_state):
             points = CURSOR.fetchone()[0]
             data_array.append({"name": player_id, "points": points})
     CONNECTION.commit()
-
-    # for i in range(0, NUMBER_OF_PLAYERS):
-    #     classes_html.append(
-    #         class_array[i] +
-    #         '<br>' +
-    #         data_array[i])
-    if len(data_array) > 0:
-        return data_array #get_statistics_html(classes_html)
-    else:
-        return ''
+    return data_array
 
 
 def get_classes():
@@ -465,18 +324,11 @@ def get_classes():
 
 def get_ranking():
     classes = []
-    for i in PLAYER_IDS:
-        CURSOR.execute(
-            '''SELECT points, name,
-            match, state, former_place,
-            trend
-             from classes
-            WHERE number = %s''',
-            (i,)
-        )
+    for player_id in PLAYER_IDS:
+        CURSOR.execute(GET_PLAYER_QUERY, (player_id,))
         result = CURSOR.fetchone()
         curr_class = {
-            'class_id': i,
+            'class_id': player_id,
             'points': result[0],
             'class_name': result[1],
             'match': result[2],
@@ -485,6 +337,7 @@ def get_ranking():
             'old_trend': result[4]
         }
         classes.append(curr_class)
+
     classes = sorted(classes, key=itemgetter('points'))
     classes.reverse()
     curr_places = []
@@ -501,7 +354,6 @@ def get_ranking():
         for i in range(0, NUMBER_OF_PLAYERS):
             if dirties[i] == '':
                 dirties[i] = (
-                    get_match_color(classes[i]['match']) +
                     str(classes[i]['class_name']) +
                     ' (' +
                     str(classes[i]['state']) +
@@ -535,37 +387,6 @@ def get_map(level):
     return CURSOR.fetchone()[0]
 
 
-def data_submit(level):
-    class_name = request.args.get('class_num', 0, type=int)
-    estimate = request.args.get('estimate')
-    if class_name == 0:
-        return jsonify(result="Bitte wähle eine Klasse aus")
-    try:
-        estimate = int(estimate)
-    except ValueError:
-        return jsonify(result="Deine Eingabe war keine Zahl")
-    if level == 1:
-        count_query = '''SELECT count(*) FROM estimate_class_%s'''
-        insert_query = '''INSERT INTO estimate_class_%s VALUES ( %s )'''
-    elif level == 6:
-        count_query = '''SELECT count(*) FROM estimate_6_class_%s'''
-        insert_query = '''INSERT INTO estimate_6_class_%s VALUES ( %s )'''
-    CURSOR.execute(
-        count_query,
-        (class_name,)
-    )
-    estimate_count = CURSOR.fetchone()[0]
-    if estimate_count >= 25:
-        return jsonify(result="Diese Klasse hat schon 25 Eingaben gemacht.")
-    else:
-        CURSOR.execute(
-            insert_query,
-            (class_name, estimate)
-        )
-        CONNECTION.commit()
-        return jsonify(result="Deine Eingabe war erfolgreich")
-
-
 def get_instruction_header(current_level, level):
     if current_level > level:
         return 'Passed'
@@ -573,18 +394,6 @@ def get_instruction_header(current_level, level):
         return 'Not Started'
     else:
         return 'Playing'
-
-
-def get_match_color(match):
-    if match != 0:
-        match_color = (
-            "<img style=\"margin-right: 15px;\"" +
-            " alt=\"Color\" src=\"static/images/" +
-            str(match) + ".png\" />"
-        )
-    else:
-        match_color = ''
-    return match_color
 
 
 def get_class_html(class_dict, index, dirties):
@@ -613,7 +422,6 @@ def get_class_html(class_dict, index, dirties):
         image = get_image_trend(class_dict['old_trend'])
 
     class_text = (
-        get_match_color(class_dict['match']) +
         class_dict['class_name'] +
         ' (' +
         str(class_dict['state']) +
@@ -627,24 +435,6 @@ def get_class_html(class_dict, index, dirties):
     if dirty:
         dirties[index] = class_text
     return [class_text, dirty, dirties]
-
-
-def get_statistics_html(class_html_array):
-    html = (
-        (
-            (
-                class_html_array[0].join(STATISTICS_CELL) +
-                class_html_array[1].join(STATISTICS_CELL) +
-                class_html_array[2].join(STATISTICS_CELL)
-            ).join(STATISTICS_COLUMN) +
-            (
-                class_html_array[3].join(STATISTICS_CELL) +
-                class_html_array[4].join(STATISTICS_CELL) +
-                class_html_array[5].join(STATISTICS_CELL)
-            ).join(STATISTICS_COLUMN)
-        ).join(STATISTICS_PANEL)
-    )
-    return html
 
 
 def get_image_trend(trend):
@@ -667,5 +457,5 @@ def get_legend(level):
         return ''
 
 
-#if __name__ == '__main__':
-#    APP.run()
+# if __name__ == '__main__':
+#     APP.run()

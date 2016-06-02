@@ -12,111 +12,142 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">     
-            <div class="col-md-3">
-
-                <div class="panel panel-success" id="instruction-panel">
-                    <a href="/instruction" id="title-link">
-                        <div class="panel-heading" id="instruction-header">
-                            <h3 class="panel-title" id="level-title"></h3>
-	                    </div>
-                    </a>
-                    <p id="instruction-text"></p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-success" id="instruction-panel">
+                        <a href="/instruction" id="title-link">
+                            <div class="panel-heading" id="instruction-header">
+                                <h3 class="panel-title" id="level-title"></h3>
+                            </div>
+                        </a>
+                        <p id="instruction-text"></p>
+                    </div>
                 </div>
-                
-	                <div class="panel panel-success" id="twitter-panel">
-	                    <a href="https://twitter.com/search?f=realtime&q=geoschoolday&src=typd">
-		                    <div class="panel-heading">
-		                        <h3 class="panel-title">
-		                            Twitter: #geoschoolday
-		                        </h3>
-		                    </div>
-		                    <a class="twitter-timeline"  href="https://twitter.com/search?q=%23geoschoolday"  data-widget-id="450918941234171904" data-chrome="nofooter noscrollbar noheader">
-		                        Tweets über "#geoschoolday"
-		                    </a>    
-	                    </a>
-	                </div>
-                    
             </div>
-            <div class="col-md-6">
-                <div class="row subRow">        
-                    <div class="col-sm-6 subRow breadcrumb-own">
-                        <div class="arrow" id="arrow1" data-level="1">
-                            <div class="rect" id="rect1">
-                                <p>
-                                    Level 1
-                                </p>
-	                        </div>
-		                    <div class="tri" id="tri1"></div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="col-md-6">
+                        <div class="panel panel-success mission-panel">
+                            <div class="panel-heading" >
+                                <h3 class="panel-title" id="level-title">Missionen</h3>
+                            </div>
+                            <div class="row subRow mission-row">
+                                <span>Missionen: </span>
+                                <span class="breadcrumb-own">
+                                    <span class="arrow" id="arrow1" data-level="1">
+                                        <span class="rect" id="rect1"> 1 
+                                        </span>
+                                    </span>
+                                    <span class="arrow" id="arrow2" data-level="2">
+                                        <span class="rect" id="rect2"> 2
+                                        </span>
+                                    </span>
+                                    <span class="arrow" id=arrow3 data-level="3">
+                                        <span class="rect" id="rect3"> 3
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="breadcrumb-own">
+                                    <span class="arrow" id="arrow4" data-level="4">
+                                        <span class="rect" id="rect4"> 4
+                                        </span>
+                                    </span>
+                                    <span class="arrow" id="arrow5" data-level="5">
+                                        <span class="rect" id="rect5"> 5
+                                        </span>
+                                    </span>
+                                    <span class="arrow" id="arrow6" data-level="6">
+                                        <span class="rect" id="rect6"> 6
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
-		                <div class="arrow" id="arrow2" data-level="2">
-                            <div class="rect" id="rect2">
-                                <p>
-                                    Level 2
-                                </p>    
-	                        </div>
-	                        <div class="tri" id="tri2"></div>
-	                    </div>
-		                <div class="arrow" id=arrow3 data-level="3">
-	                        <div class="rect" id="rect3">
-	                            <p>
-	                               Level 3
-	                            </p>  
-	                        </div>
-	                        <div class="tri" id="tri3"></div>
-	                    </div>
-		            </div>
-		            <div class="col-sm-6 subRow breadcrumb-own">
-		                <div class="arrow" id="arrow4" data-level="4">
-	                        <div class="rect" id="rect4">
-	                            <p>
-	                               Level 4
-	                            </p>  
-	                        </div>
-	                        <div class="tri" id="tri4"></div>
-	                    </div>
-		                <div class="arrow" id="arrow5" data-level="5">
-	                        <div class="rect" id="rect5">
-	                            <p>
-	                               Level 5
-	                            </p>  
-	                        </div>
-	                        <div class="tri" id="tri5"></div>
-	                    </div>
-		                <div class="arrow" id="arrow6" data-level="6">
-	                        <div class="rect" id="rect6">
-	                            <p>
-	                               Level 6
-	                            </p>  
-	                        </div>
-	                        <div class="tri" id="tri6"></div>
-	                    </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-success" id="countdown-panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Countdown
+                                </h3>
+                            </div>
+                            <p id="timer"></p>
+                        </div>
                     </div>
                 </div>
-	            <div class="row subRow">
-                    <div class="col-sm-12" id="mapper"></div>
+                <div class="col-md-3">
+
                 </div>
+
             </div>
+        <div class="row">
             <div class="col-md-3">
-                <div class="panel panel-success" id="statistic-panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title" id="statistics-titel">
-                            Live Statistics
-                        </h3>
-                    </div>
-                    <div id=statistics></div>
+                 <div class="panel panel-success" id="twitter-panel">
+                    <a href="https://twitter.com/search?f=realtime&q=geoschoolday&src=typd">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Twitter: #geoschoolday
+                            </h3>
+                        </div>
+                        <a class="twitter-timeline"  href="https://twitter.com/search?q=%23geoschoolday"  data-widget-id="450918941234171904" data-chrome="nofooter noscrollbar noheader">
+                            Tweets über "#geoschoolday"
+                        </a>
+                    </a>
                 </div>
-                <div class="panel panel-success" id="countdown-panel">
+                 <div class="panel panel-success" id="sogi-panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Countdown
+                            SOGI
                         </h3>
                     </div>
-                    <p id="timer"></p>
+                    <div class="panel-body">
+                        <div class="sogi-logo">
+                            <a href="http://www.sogi.ch/">
+                                <img alt="Sogi" src="static/images/sogi_rgb.jpg" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row subRow">
+                    <div class="col-md-12">
+                        <div class="row subRow">
+                            <div class="col-sm-12" id="mapper"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row subRow">
+                    <div class="col-md-6">
+                        <div class="panel panel-success" id="legCol3">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Class Ranking
+                                </h3>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item" id="place1"></li>
+                                <li class="list-group-item" id="place2"></li>
+                                <li class="list-group-item" id="place3"></li>
+                                <li class="list-group-item" id="place4"></li>
+                                <li class="list-group-item" id="place5"></li>
+                                <li class="list-group-item" id="place6"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                         <div class="panel panel-success" id="statistic-panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" id="statistics-titel">
+                                    Live Statistics
+                                </h3>
+                            </div>
+                            <div id=statistics></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-3">
                 <a href="http://www.gramfeed.com/instagram/tags#geoschoolday">
 	                <div class="panel panel-success" id="picPanel">
@@ -125,41 +156,27 @@
 	                            Instagram: #geoschoolday
 	                        </h3>
 	                    </div>
-	                    <div class="imageHolder">			
-						<!--  <iframe src="http://snapwidget.com/in/?h=Z2Vvc2Nob29sZGF5fGlufDIyNXwxfDF8fG5vfDV8bm9uZXxvblN0YXJ0fG5v&v=24414" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:230px; height:217px; padding-top:10px; margin: 0 auto; display: block;"></iframe>
-	                    -->
+	                    <div class="imageHolder">
 	                    <iframe src="http://snapwidget.com/in/?h=Z2Vvc2Nob29sZGF5fGlufDI4M3wxfDF8fG5vfDB8bm9uZXxvblN0YXJ0fG5v&v=21514" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:283px; height:222px; margin: 0 auto; display: block;"></iframe>
 	                    </div>
 	                </div>
-                </a>    
-            </div>
-            <div class="col-md-6" >
-                <div class="panel panel-success" id="legCol3">
+                </a>
+                 <div class="panel panel-success" id="bern-panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Class Ranking
+                            Bern Mobil
                         </h3>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item" id="place1"></li>
-                        <li class="list-group-item" id="place2"></li>
-                        <li class="list-group-item" id="place3"></li>
-                        <li class="list-group-item" id="place4"></li>
-                        <li class="list-group-item" id="place5"></li>
-                        <li class="list-group-item" id="place6"></li>
-                    </ul>
+                    <div class="panel-body">
+                        <div class="bern-logo">
+                            <a href="http://www.bernmobil.ch/">
+                                <img alt="Bern Mobil" src="static/images/bern.png" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3" >
-                <div class="panel panel-success" id="legendPanel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            Map Legend
-                        </h3>
-                    </div>
-                    <div class="imageHolder" id="legendholder"></div>
-                </div>    
-            </div> 
+
         </div>
     </div>
 {% endblock %}

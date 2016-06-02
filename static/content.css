@@ -15,6 +15,7 @@ background-color:#960000;
 background-image:None !important;
 border-color:#960000;
 color:#fff;
+	padding:5px 15px;
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffd0e9c6', GradientType=0);
 }
 #title-link,#title-link:hover {
@@ -36,24 +37,24 @@ border-bottom-right-radius:0!important;
 margin-left:0;
 margin-right:0;
 }
+#mapper {
+	height:412px;
+}
 #mapper,.col-sm-2,.breadcrumb-own, .stat-col {
 padding-left:0;
 padding-right:0;
 }
 .arrow {
-height:39px;
+    margin-right: 10px;
+
 margin-bottom:5px;
-width:32%;
-float:left;
 }
 .rect {
-height:39px;
-width:55px;
+        padding:5px 15px;
 background-color:#c6c6c6;
-float:left;
 }
 
-.rect > p {
+.rect > tri {
 color:#fff;
 font-size:16px;
 padding-left:2px;
@@ -67,7 +68,6 @@ height:0;
 border-top:20px solid transparent;
 border-bottom:20px solid transparent;
 border-left:20px solid #c6c6c6;
-float:left;
 }
 .rect-curr {
 background-color:#960000;
@@ -82,16 +82,35 @@ background-color:#001eff;
 border-left:20px solid #001eff;
 }
 #countdown-panel,#statistic-panel {
-height:215px;
-border:none;
-box-shadow:none;
-background-color:#fff; 	
-}
-#instruction-panel {
-height:145px;
+height:261px;
 border:none;
 box-shadow:none;
 background-color:#fff;
+	margin-bottom:0;
+}
+#countdown-panel{
+height:110px;
+	margin-bottom:0;
+
+}
+.mission-row {
+	margin-top:20px;
+	margin-left:5px;
+	font-size:16px;
+}
+.col-md-9 .mission-panel {
+	height:110px;
+	border:none;
+	background-color: #ffffff;
+	margin-bottom: 0;
+	margin-left: -5px;
+}
+#instruction-panel {
+height:70px;
+border:none;
+box-shadow:none;
+background-color:#fff;
+	margin-bottom: 0;
 }
 .twitter-timeline{
 height:247px;
@@ -101,9 +120,14 @@ width:100%!important;
 background-color:transparent;
 }
 #countdown-panel > p {
-text-align:center;
-font-size:100px;
-padding-top:30px;
+    text-align: center;
+    font-size: 20px;
+    margin-left: 110px;
+	zoom: 0.6;
+-moz-transform: scale(0.6)
+}
+.flip-clock-label {
+	visibility: hidden;
 }
 #bottom-panels,#level1-stat {
 margin-top:5px;
@@ -126,6 +150,22 @@ border:none;
 box-shadow:none;
 background-color:#fff;
 }
+#legCol3{
+	height:261px;
+	margin-bottom: 0;
+}
+.col-md-3 #bern-panel {
+	    margin-top: 152px;
+    background-color: white;
+    height: 262px;
+    margin-bottom: 0;
+    box-shadow: none;
+    border: none;
+}
+.bern-logo img {
+	    max-width: 100%;
+    margin-top: 60px;
+}
 #instruction-header {
 background-image:None !important;
 border-color:#960000!important;
@@ -141,9 +181,7 @@ margin-left:0;
 margin-right:0;
 width:100%;
 }
-.instruction-header-trafficlight {
-padding:6px 15px !important;
-}
+
 .instruction-header-non-trafficlight {
 padding:10px 15px !important;
 }
@@ -154,15 +192,21 @@ a:hover {
 	border-radius:0!important;
 }
 #twitter-panel {
-	height: 283px;
+	height: 392px;
 	border-color:transparent;
 	
 }
+
+#twitter-panel iframe {
+	height:383px!important;
+}
+#sogi-panel {
+	height: 261px;
+	border-color:transparent;
+	margin-bottom: 0;
+
+}
+
 .timeline .stream {
 	width:100%;
-}
-@media (min-width: 768px) {
-  .points_ranking {
-    margin-right: 100px;
-  }
 }

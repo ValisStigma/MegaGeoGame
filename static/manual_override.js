@@ -11,7 +11,6 @@ $(function () {
                 $("#level-title").text(data.header);
                 $("#instruction-text").text(data.instruction);
                 $("#mapper").html(data.map);
-                $("#legendholder").html(data.legend);
             });
             $("#live-button").removeClass('invisible-button');
             $("#rect" + current_level_chosen.toString()).removeClass('rect-chosen');
@@ -20,8 +19,6 @@ $(function () {
             $("#tri" + levelChosen).addClass('tri-chosen');
             manual_mode = levelChosen;
             current_level_chosen = levelChosen;
-            $("#instruction-header").removeClass('instruction-header-trafficlight');
-            $("#instruction-header").addClass('instruction-header-non-trafficlight');
         }
         return false;
     });

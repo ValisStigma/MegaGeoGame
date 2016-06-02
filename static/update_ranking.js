@@ -7,9 +7,8 @@ function update_ranking() {
             for(var i = 0; i < ranking.length; i++) {
                 $("#place" + (i + 1) ).html((i + 1) + '. ' + ranking[i]);
             }
-            if(current_level === 1 && data.instruction && data.instruction !== undefined) {
+            if(data.instruction && data.instruction.length > 0) {
                 var canvas = $('<canvas id="myChart" width="282" height="200"></canvas>');
-                $("#statistics").html(data.instruction);
                 $("#statistics").html(canvas);
                 var stats = data.instruction;
                 stats.sort(function(a, b){return b.points-a.points});
@@ -19,46 +18,21 @@ function update_ranking() {
                     labels.push(stats[j].name);
                     points.push(stats[j].points);
                 }
-                var myChart = new Chart(canvas, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Points',
-                            fillColor: "rgba(150, 0, 0, 1)",
-                            backgroundColor: "rgba(150, 0, 0, 1)",
-                            data: points
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            }
-            else if(current_level === 3 && data.instruction && data.instruction !== undefined) {
-                var canvas = $('<canvas id="myChart" width="282" height="200"></canvas>');
-                $("#statistics").html(data.instruction);
-                $("#statistics").html(canvas);
-                var stats = data.instruction;
-                stats.sort(function(a, b){return b.points-a.points});
-                var labels = [];
-                var points = [];
-                for(var j = 0; j < 6; j++) {
-                    labels.push(stats[j].name);
-                    points.push(stats[j].points);
+                var label = "Points";
+                if(current_level === 3) {
+                    label = 'Bikes';
                 }
+
+                else if(current_level === 4) {
+                    label = 'Android Users';
+                }
+
                 var myChart = new Chart(canvas, {
                     type: 'bar',
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Bikes',
+                            label: label,
                             backgroundColor: "rgba(150, 0, 0, 1)",
                             data: points
                         }]
@@ -75,74 +49,6 @@ function update_ranking() {
                 });
             }
 
-            else if(current_level === 4 && data.instruction && data.instruction !== undefined) {
-                var canvas = $('<canvas id="myChart" width="282" height="200"></canvas>');
-                $("#statistics").html(data.instruction);
-                $("#statistics").html(canvas);
-                var stats = data.instruction;
-                stats.sort(function(a, b){return b.points-a.points});
-                var labels = [];
-                var points = [];
-                for(var j = 0; j < 6; j++) {
-                    labels.push(stats[j].name);
-                    points.push(stats[j].points);
-                }
-                var myChart = new Chart(canvas, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Android Users',
-                            backgroundColor: "rgba(150, 0, 0, 1)",
-                            data: points
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            }
-
-            else if(data.instruction && data.instruction !== undefined) {
-                var canvas = $('<canvas id="myChart" width="282" height="200"></canvas>');
-                $("#statistics").html(data.instruction);
-                $("#statistics").html(canvas);
-                var stats = data.instruction;
-                stats.sort(function(a, b){return b.points-a.points});
-                var labels = [];
-                var points = [];
-                for(var j = 0; j < 6; j++) {
-                    labels.push(stats[j].name);
-                    points.push(stats[j].points);
-                }
-                var myChart = new Chart(canvas, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Points',
-                            backgroundColor: "rgba(150, 0, 0, 1)",
-                            data: points
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            }
-            //$("#statistics").html(data.instruction);
         });
     }
     setTimeout("update_ranking()", 10000);

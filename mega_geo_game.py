@@ -15,16 +15,6 @@ DATABASE_URL = (
     '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
 )
 
-# urlparse.uses_netloc.append("postgres")
-# # URL = urlparse.urlparse(os.environ['DATABASE_URL'])
-#
-# CONNECTION = psycopg2.connect(
-#      database="d6ln3gnquqodqq",
-#      user="dgibhwjhbemyxu",
-#      password="rFqJwYnsX48PtWyR8LUgVHH0bE",
-#      host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
-#      port="5432"
-#  )
 urlparse.uses_netloc.append("postgres")
 URL = urlparse.urlparse(os.environ['DATABASE_URL'])
 
@@ -35,7 +25,6 @@ CONNECTION = psycopg2.connect(
     host=URL.hostname,
     port=URL.port
     )
-
 
 CURSOR = CONNECTION.cursor()
 QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
@@ -59,7 +48,6 @@ QUERY_LEVEL_4 = [
 
 QUERY_POINTS = "SELECT points FROM classes WHERE number = %s"
 UPDATE_POINTS_QUERY = "UPDATE classes SET points = %s WHERE number = %s"
-UPDATE_TREND = "UPDATE classes SET trend = %s WHERE number = %s"
 GET_PLAYER_QUERY = "SELECT points, name, match, state, former_place, trend from classes WHERE number = %s"
 
 PLAYER_IDS = [
@@ -76,12 +64,6 @@ PLAYER_IDS = [
 ]
 VALID_LEVELS = [1, 2, 3, 4, 5, 6]
 VALID_STATES = ['weiss', 'schwarz']
-TREND_HTML = ["<img style=\"float:right; margin-top: -5px;\" " +
-              "alt=\"trend\" src=\"static/images/", ".png\" />"]
-
-LEGEND_HTML = ["<img alt=\"Legend\" src=\"static/images/legend", ".png\" />"]
-
-NUMBER_OF_PLAYERS = 10
 
 
 @APP.route('/')
@@ -165,7 +147,6 @@ def relative_submit():
 
 @APP.route('/seed_classes')
 def seed():
-    x = os.getcwd()
     __location__ = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
     with open(os.path.join(__location__, 'classes.txt')) as f:
@@ -187,13 +168,11 @@ def elements_for_manual_mode(curr_level, clicked_level):
     stats = get_classes_in_statistics(clicked_level)
     header = get_instruction_header(curr_level, clicked_level)
     instruction_panel_text = get_instruction(clicked_level)
-    legend = get_legend(clicked_level)
     map_iframe = get_map(clicked_level)
     return jsonify(
         stats=stats,
         header=header,
         instruction=instruction_panel_text,
-        legend=legend,
         map=map_iframe
     )
 
@@ -209,21 +188,14 @@ def update():
     if curr_level == 0:
         map_iframe = get_map(1)
         instruction_panel_heading = 'A game with 6 levels'
-        image_html = get_legend(0)
     elif curr_level == 1 and (curr_state == 'weiss' or curr_state == 'schwarz'):
         map_iframe = get_map(1)
-        image_html = get_legend(1.1)
     else:
         map_iframe = get_map(curr_level)
-    if curr_level == 1 and (curr_state == 'schwarz'):
-        image_html = get_legend(1.3)
-    elif curr_level < 7 and curr_level > 1:
-        image_html = get_legend(curr_level)
     return jsonify(
         instruction_panel_heading=instruction_panel_heading,
         instruction=instruction_panel_text,
-        map=map_iframe,
-        image=image_html
+        map=map_iframe
     )
 
 
@@ -263,26 +235,14 @@ def get_current_level():
 def get_classes_in_statistics(curr_level):
     data_array = []
 
-    if curr_level == 1:
-        scrape_query = QUERY_LEVEL_1
-        select_old_points = "SELECT points FROM level1 WHERE class = %s"
-        update_level_score = "UPDATE level1 SET points = %s WHERE class = %s"
-        for player_id in PLAYER_IDS:
-            features = SCRAPER.get_json(player_id.join(scrape_query))['features']
-            level_points = 0
-            if len(features) > 0:
-                level_points = features[0]['attributes']['Flaeche']
-            CURSOR.execute(select_old_points, (player_id,))
-            old_points = CURSOR.fetchone()[0]
-            CURSOR.execute(QUERY_POINTS, (player_id,))
-            curr_points = CURSOR.fetchone()[0]
-            new_points = level_points - old_points + curr_points
-            if old_points < level_points:
-                CURSOR.execute(UPDATE_POINTS_QUERY, (new_points, player_id))
-                CURSOR.execute(update_level_score, (level_points, player_id))
-            data_array.append({"name": player_id, "points": level_points})
-
-    elif curr_level == 3 or curr_level == 4:
+    if curr_level == 1 or curr_level == 3 or curr_level == 4:
+        scrape_query = ""
+        select_old_points = ""
+        update_level_score = ""
+        if curr_level == 1:
+            scrape_query = QUERY_LEVEL_1
+            select_old_points = "SELECT points FROM level1 WHERE class = %s"
+            update_level_score = "UPDATE level1 SET points = %s WHERE class = %s"
         if curr_level == 3:
             scrape_query = QUERY_LEVEL_3
             select_old_points = "SELECT numb FROM level3 WHERE class = %s"
@@ -292,9 +252,13 @@ def get_classes_in_statistics(curr_level):
             select_old_points = "SELECT socks FROM level4 WHERE class = %s"
             update_level_score = "UPDATE level4 SET socks = %s WHERE class = %s"
         for player_id in PLAYER_IDS:
-            features = SCRAPER.get_json(
-                str(player_id).join(scrape_query))['features']
-            level_points = len(features)
+            level_points = 0
+            features = SCRAPER.get_json(player_id.join(scrape_query))['features']
+            if curr_level == 1:
+                if(len(features)) > 0:
+                    level_points = features[0]['attributes']['Flaeche']
+            else:
+                level_points = len(features)
             CURSOR.execute(select_old_points, (player_id,))
             old_points = CURSOR.fetchone()[0]
             CURSOR.execute(QUERY_POINTS, (player_id,))
@@ -341,35 +305,15 @@ def get_ranking():
     classes = sorted(classes, key=itemgetter('points'))
     classes.reverse()
     curr_places = []
-    dirty = False
-    dirties = ['', '', '', '', '', '', '', '', '', '']
-
-    for i in range(0, NUMBER_OF_PLAYERS):
-        result_array = get_class_html(classes[i], i, dirties)
-        curr_places.append(result_array[0])
-        if not dirty:
-            dirty = result_array[1]
-        dirties = result_array[2]
-    if dirty:
-        for i in range(0, NUMBER_OF_PLAYERS):
-            if dirties[i] == '':
-                dirties[i] = (
-                    str(classes[i]['class_name']) +
-                    ' (' +
-                    str(classes[i]['state']) +
-                    ')' +
-                    get_image_trend(0) +
-                    '<div class="points_ranking" style="float: right;" >' +
-                    str(classes[i]['points']) +
-                    ' points' +
-                    '</div>'
-                )
-                CURSOR.execute(
-                    UPDATE_TREND,
-                    (0, classes[i]['class_id'],)
-                )
-                CONNECTION.commit()
-        curr_places = dirties
+    for curr_class in classes:
+        class_text = (
+            curr_class['class_name'] +
+            '<div class="points_ranking" style="float: right;" >' +
+            str(curr_class['points']) +
+            ' points' +
+            '</div>'
+        )
+        curr_places.append(class_text)
     return curr_places
 
 
@@ -396,66 +340,5 @@ def get_instruction_header(current_level, level):
         return 'Playing'
 
 
-def get_class_html(class_dict, index, dirties):
-    dirty = False
-    if class_dict['former_place'] != index + 1:
-        dirty = True
-        CURSOR.execute(
-            "UPDATE classes SET former_place = %s WHERE number = %s",
-            (index + 1, class_dict['class_id'])
-        )
-        if class_dict['former_place'] < index + 1:
-            image = get_image_trend(-1)
-            CURSOR.execute(
-                UPDATE_TREND,
-                (-1, class_dict['class_id'],)
-            )
-            CONNECTION.commit()
-        elif class_dict['former_place'] > index + 1:
-            image = get_image_trend(1)
-            CURSOR.execute(
-                UPDATE_TREND,
-                (1, class_dict['class_id'],)
-            )
-        CONNECTION.commit()
-    else:
-        image = get_image_trend(class_dict['old_trend'])
-
-    class_text = (
-        class_dict['class_name'] +
-        ' (' +
-        str(class_dict['state']) +
-        ') ' +
-        image +
-        '<div class="points_ranking" style="float: right;" >' +
-        str(class_dict['points']) +
-        ' points' +
-        '</div>'
-    )
-    if dirty:
-        dirties[index] = class_text
-    return [class_text, dirty, dirties]
-
-
-def get_image_trend(trend):
-    if trend == 1:
-        return 'up'.join(TREND_HTML)
-    elif trend == -1:
-        return 'down'.join(TREND_HTML)
-    else:
-        return 'same'.join(TREND_HTML)
-
-
-def get_legend(level):
-    if level == 1.1 or level == 1.2:
-        return '1-1'.join(LEGEND_HTML)
-    elif level == 1.3 or level == 1:
-        return '1-2'.join(LEGEND_HTML)
-    elif 7 > level > 1:
-        return str(level).join(LEGEND_HTML)
-    else:
-        return ''
-
-
-# if __name__ == '__main__':
-#     APP.run()
+#if __name__ == '__main__':
+#   APP.run()

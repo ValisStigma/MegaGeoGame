@@ -14,15 +14,11 @@ function update() {
     if (curr_level !== new_level || (curr_level === 1 && curr_state !== state)) {
         state_text = '';
         if (state === 'schwarz') {
-            state_text = 'Inaktiv <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
+            state_text = 'Inaktiv';
             $("#statistics-titel").text("Live Statistics");
         }
         if (state === 'weiss') {
-            state_text = 'Läuft <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
+            state_text = 'Läuft';
             $("#statistics-titel").text("Live Statistics");
         }
         $("#rect" + curr_level.toString()).removeClass('rect-curr');
@@ -33,29 +29,19 @@ function update() {
             $("#level-title").html(datas.instruction_panel_heading + state_text + "<img style=\"float:right;\" alt=\"Color\" src=\"static/images/instruction.png\" />");
             $("#instruction-text").text(datas.instruction);
             $("#mapper").html(datas.map);
-            $("#legendholder").html(datas.image);
         });
     }
     if (curr_state !== state) {
         state_text = '';
         if (state === 'schwarz') {
-            state_text = 'Instruction <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/instruction-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
+            state_text = 'Instruction';
             $("#statistics-titel").text("Live Statistics");
         }
         if (state === 'weiss') {
-            state_text = 'Playing <img style=\"margin-left: 20px;\" alt=\"state\" src=\"static/images/playing-phase.png\" />';
-            $("#instruction-header").removeClass('instruction-header-non-trafficlight');
-            $("#instruction-header").addClass('instruction-header-trafficlight');
+            state_text = 'Playing';
             $("#statistics-titel").text("Live Statistics");
         }
-        if (state === 0) {
-            state_text = '';
-            $("#instruction-header").removeClass('instruction-header-trafficlight');
-            $("#instruction-header").addClass('instruction-header-non-trafficlight');
-            $("#statistics-titel").text("Live Statistics");
-        }
+
         $.getJSON('/_update_level', {current_level: new_level, current_state: state}, function (datas) {
             $("#level-title").html(datas.instruction_panel_heading + state_text + "<img style=\"float:right;\" alt=\"Color\" src=\"static/images/instruction.png\" />");
             $("#instruction-text").text(datas.instruction);

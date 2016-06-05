@@ -339,4 +339,3 @@ def get_instruction_header(current_level, level):
     else:
         return 'Playing'
 
-

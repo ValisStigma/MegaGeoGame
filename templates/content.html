@@ -13,7 +13,7 @@
 {% block content %}
     <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-9">
                     <div class="panel panel-success" id="instruction-panel">
                         <a href="/instruction" id="title-link">
                             <div class="panel-heading" id="instruction-header">
@@ -23,60 +23,87 @@
                         <p id="instruction-text"></p>
                     </div>
                 </div>
+                <div class="col-md-3">
+                    <div class="panel panel-success" id="share-panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" >#geoschoolday</h3>
+                            </div>
+                            <div class="sharers">
+                                                            <div class="fb-share-button" data-href="http://localhost:5000/" data-layout="button" data-mobile-iframe="true"></div>
+
+                            </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-9">
-                    <div class="col-md-6">
-                        <div class="panel panel-success mission-panel">
-                            <div class="panel-heading" >
-                                <h3 class="panel-title" id="level-title">Missionen</h3>
-                            </div>
-                            <div class="row subRow mission-row">
-                                <span>Missionen: </span>
-                                <span class="breadcrumb-own">
-                                    <span class="arrow" id="arrow1" data-level="1">
-                                        <span class="rect" id="rect1"> 1 
-                                        </span>
-                                    </span>
-                                    <span class="arrow" id="arrow2" data-level="2">
-                                        <span class="rect" id="rect2"> 2
-                                        </span>
-                                    </span>
-                                    <span class="arrow" id=arrow3 data-level="3">
-                                        <span class="rect" id="rect3"> 3
-                                        </span>
-                                    </span>
+                <div class="col-md-3">
+                    <div class="panel panel-success mission-panel">
+                        <div class="panel-heading" >
+                            <h3 class="panel-title" id="level-title">Missionen</h3>
+                        </div>
+                        <div class="row subRow mission-row">
+                            <span class="breadcrumb-own">
+                                <span class="arrow" id="arrow1" data-level="1">
+                                    <span class="rect" id="rect1">1</span>
                                 </span>
-                                <span class="breadcrumb-own">
-                                    <span class="arrow" id="arrow4" data-level="4">
-                                        <span class="rect" id="rect4"> 4
-                                        </span>
-                                    </span>
-                                    <span class="arrow" id="arrow5" data-level="5">
-                                        <span class="rect" id="rect5"> 5
-                                        </span>
-                                    </span>
-                                    <span class="arrow" id="arrow6" data-level="6">
-                                        <span class="rect" id="rect6"> 6
-                                        </span>
-                                    </span>
+                                <span class="arrow" id="arrow2" data-level="2">
+                                    <span class="rect" id="rect2">2</span>
                                 </span>
-                            </div>
+                                <span class="arrow" id=arrow3 data-level="3">
+                                    <span class="rect" id="rect3">3</span>
+                                </span>
+                            </span>
+                            <span class="breadcrumb-own">
+                                <span class="arrow" id="arrow4" data-level="4">
+                                    <span class="rect" id="rect4">4</span>
+                                </span>
+                                <span class="arrow" id="arrow5" data-level="5">
+                                    <span class="rect" id="rect5">5</span>
+                                </span>
+                                <span class="arrow" id="arrow6" data-level="6">
+                                    <span class="rect" id="rect6">6</span>
+                                </span>
+                                <span class="arrow" id="arrow7" data-level="7">
+                                    <span class="rect" id="rect6">7</span>
+                                </span>
+                            </span>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-success" id="countdown-panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Countdown
-                                </h3>
-                            </div>
-                            <p id="timer"></p>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-success" id="countdown-panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Countdown
+                            </h3>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p id="timer"></p>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="time"></div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-md-3">
 
+                    <div class="panel panel-success replay-panel">
+                        <div class="panel-heading" >
+                            <h3 class="panel-title"> LIVE & REPLAY TRACK</h3>
+                        </div>
+                        <div class="replay">
+                            <a href="http://live.tractalis.com/geoschoolday/">
+                                <img src="http://tractalisstorage.blob.core.windows.net/events/Resources/Common/html5/Trans-100-256-01-ws-html5.png"/>
+                                <span class="text">Zum Live Replay</span>
+                            </a>
+
+
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -104,6 +131,11 @@
                         <div class="sogi-logo">
                             <a href="http://www.sogi.ch/">
                                 <img alt="Sogi" src="static/images/sogi_rgb.jpg" />
+                            </a>
+                        </div>
+                        <div class="bern-logo">
+                            <a href="http://www.bernmobil.ch/">
+                                <img alt="Bern Mobil" src="static/images/bern.png" />
                             </a>
                         </div>
                     </div>
@@ -157,20 +189,26 @@
 	                        </h3>
 	                    </div>
 	                    <div class="imageHolder">
-	                    <iframe src="http://snapwidget.com/in/?h=Z2Vvc2Nob29sZGF5fGlufDI4M3wxfDF8fG5vfDB8bm9uZXxvblN0YXJ0fG5v&v=21514" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:283px; height:222px; margin: 0 auto; display: block;"></iframe>
+                            <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+                            <iframe src="//lightwidget.com/widgets/92b615939f255033a53c55bf59d2e09c.html" id="lightwidget_92b615939f" name="lightwidget_92b615939f" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0 none; overflow: hidden; height: 350px;"></iframe>
 	                    </div>
 	                </div>
                 </a>
                  <div class="panel panel-success" id="bern-panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Bern Mobil
+                            Powered By
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <div class="bern-logo">
-                            <a href="http://www.bernmobil.ch/">
-                                <img alt="Bern Mobil" src="static/images/bern.png" />
+                        <div class="hsr-logo">
+                            <a href="http://www.ifs.hsr.ch/Geometa-Lab.12520.0.html">
+                                <img alt="Geometa Lab" src="static/images/logo-hsr.jpg" />
+                            </a>
+                        </div>
+                        <div class="esri-logo">
+                            <a href="http://www.esri.ch/">
+                                <img alt="ESRI" src="static/images/esriLogo.jpg" />
                             </a>
                         </div>
                     </div>

@@ -62,7 +62,7 @@ PLAYER_IDS = [
     'I1',
     'J1'
 ]
-VALID_LEVELS = [1, 2, 3, 4, 5, 6]
+VALID_LEVELS = [1, 2, 3, 4, 5, 6, 7]
 VALID_STATES = ['weiss', 'schwarz']
 
 
@@ -187,7 +187,7 @@ def update():
     instruction_panel_heading = ''
     if curr_level == 0:
         map_iframe = get_map(1)
-        instruction_panel_heading = 'A game with 6 levels'
+        instruction_panel_heading = 'A game with 7 levels'
     elif curr_level == 1 and (curr_state == 'weiss' or curr_state == 'schwarz'):
         map_iframe = get_map(1)
     else:
@@ -219,7 +219,7 @@ def get_current_level():
         state = curr_layer['features'][0]['attributes']['Status']
         if state != 'schwarz' and state in VALID_STATES:
             return jsonify(level=curr_level, state=state)
-    for i in range(1, 7):
+    for i in range(1, 8):
         if i != curr_level:
             query = str(i).join(QUERY_GET_LEVEL)
             curr_layer = SCRAPER.get_json(query)
@@ -340,5 +340,3 @@ def get_instruction_header(current_level, level):
         return 'Playing'
 
 
-#if __name__ == '__main__':
-#   APP.run()

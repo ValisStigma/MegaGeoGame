@@ -45,12 +45,12 @@ padding-left:0;
 padding-right:0;
 }
 .arrow {
-    margin-right: 10px;
+    margin-right: 7px;
 
 margin-bottom:5px;
 }
 .rect {
-        padding:5px 15px;
+        padding:5px 10px;
 background-color:#c6c6c6;
 }
 
@@ -119,10 +119,10 @@ width:100%!important;
 .panel-success {
 background-color:transparent;
 }
-#countdown-panel > p {
+#countdown-panel  p {
     text-align: center;
     font-size: 20px;
-    margin-left: 110px;
+    margin-left: 20px;
 	zoom: 0.6;
 -moz-transform: scale(0.6)
 }
@@ -150,12 +150,15 @@ border:none;
 box-shadow:none;
 background-color:#fff;
 }
+#picPanel {
+	overflow:hidden;
+	height:392px;
+}
 #legCol3{
 	height:261px;
 	margin-bottom: 0;
 }
 .col-md-3 #bern-panel {
-	    margin-top: 152px;
     background-color: white;
     height: 262px;
     margin-bottom: 0;
@@ -164,7 +167,7 @@ background-color:#fff;
 }
 .bern-logo img {
 	    max-width: 100%;
-    margin-top: 60px;
+    margin-top: 20px;
 }
 #instruction-header {
 background-image:None !important;
@@ -209,4 +212,42 @@ a:hover {
 
 .timeline .stream {
 	width:100%;
+}
+.mission-panel, .replay-panel {
+	background-color: white;
+    border: none;
+    height: 110px;
+    margin-bottom: 0;
+}
+#time {
+	    font-size: 57px;
+    margin-left: 20px;
+}
+#timer {
+}
+
+.replay {
+	background-color:#960000;
+	margin:5px;
+	margin-top:15px;
+}
+.replay .text {
+	color:white;
+	font-size:16px;
+}
+.replay img{
+
+	max-width:50%;
+}
+
+#share-panel {
+	    margin-bottom: 0;
+    background-color: white;
+    border: none;
+    height: 68px;
+}
+
+.sharers {
+	margin-left:5px;
+	margin-top:10px;
 }

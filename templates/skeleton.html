@@ -16,6 +16,14 @@
     {% endblock %}
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container" id=head-container>
         <div class="row" id="header-row">
             <div class="col-md-3" id="title-col">
@@ -42,33 +50,7 @@
     {% block content %}
     {% endblock %}
 
-    <div class="container" >
-        <div class="row" id="footer-container">
-            <div class="col-md-2">
 
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2">
-                <p class="copyright">
-                    Powered by
-                </p>
-            </div> 
-	        <div class="col-md-3">
-                <div class="hsr-logo">
-                    <a href="http://www.ifs.hsr.ch/Geometa-Lab.12520.0.html">
-                        <img alt="Geometa Lab" src="static/images/logo-hsr.jpg" />         
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="esri-logo">
-                    <a href="http://www.esri.ch/">
-                        <img alt="ESRI" src="static/images/esriLogo.jpg" />         
-                    </a>
-                </div>
-            </div>        
-        </div>    
-    </div>          
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/static/dist/js/bootstrap.min.js"></script>
     <script src="/static/docs/assets/js/docs.min.js"></script>

@@ -338,4 +338,3 @@ def get_instruction_header(current_level, level):
         return 'Not Started'
     else:
         return 'Playing'
-

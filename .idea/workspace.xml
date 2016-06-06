@@ -10,14 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="152d1ff1-c4cb-46b6-be79-59c29077680d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes.txt" afterPath="$PROJECT_DIR$/classes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mega_geo_game.py" afterPath="$PROJECT_DIR$/mega_geo_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level1.html" afterPath="$PROJECT_DIR$/templates/input-level1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level2.html" afterPath="$PROJECT_DIR$/templates/input-level2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level3.html" afterPath="$PROJECT_DIR$/templates/input-level3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level4.html" afterPath="$PROJECT_DIR$/templates/input-level4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level5.html" afterPath="$PROJECT_DIR$/templates/input-level5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/input-level6.html" afterPath="$PROJECT_DIR$/templates/input-level6.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/countdown.js" afterPath="$PROJECT_DIR$/static/countdown.js" />
     </list>
     <ignored path="MegaGeoGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,16 +40,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="806">
               <caret line="54" column="190" selection-start-line="54" selection-start-column="190" selection-end-line="54" selection-end-column="190" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Procfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mega_geo_game.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mega_geo_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
+            <state relative-caret-position="5567">
               <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
               <folding>
                 <element signature="e#23#83#0" expanded="true" />
@@ -112,6 +95,16 @@
                 <marker date="1465246812063" expanded="true" signature="10364:10417" placeholder="SELECT instr... instructions" />
                 <marker date="1465246812063" expanded="true" signature="10521:10563" placeholder="SELECT map_l... maps" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="countdown.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/countdown.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,7 +173,6 @@
         <option value="$PROJECT_DIR$/static/live_mode.js" />
         <option value="$PROJECT_DIR$/static/manual_override.js" />
         <option value="$PROJECT_DIR$/static/update_ranking.js" />
-        <option value="$PROJECT_DIR$/static/countdown.js" />
         <option value="$PROJECT_DIR$/templates/skeleton.html" />
         <option value="$PROJECT_DIR$/static/content.css" />
         <option value="$PROJECT_DIR$/static/skeleton.css" />
@@ -194,6 +186,7 @@
         <option value="$PROJECT_DIR$/templates/input-level5.html" />
         <option value="$PROJECT_DIR$/templates/input-level6.html" />
         <option value="$PROJECT_DIR$/mega_geo_game.py" />
+        <option value="$PROJECT_DIR$/static/countdown.js" />
       </list>
     </option>
   </component>
@@ -617,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465161794067</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cleaned Up unnessecary Code">
+      <created>1465246821147</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1465246821147</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -905,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/countdown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -1023,7 +1016,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
+        <state relative-caret-position="5567">
           <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
           <folding>
             <element signature="e#23#83#0" expanded="true" />
@@ -1040,6 +1033,14 @@
             <marker date="1465246812063" expanded="true" signature="10364:10417" placeholder="SELECT instr... instructions" />
             <marker date="1465246812063" expanded="true" signature="10521:10563" placeholder="SELECT map_l... maps" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/countdown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

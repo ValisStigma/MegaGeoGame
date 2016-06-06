@@ -26,12 +26,12 @@ INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('G1', 0, 0);
 INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('H1', 0, 0);
 INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('I1', 0, 0);
 INSERT INTO level_1(class_name, points, "oldPoints") VALUES ('J1', 0, 0);
-INSERT INTO public.instructions(level, instruction) VALUES (1, 'Finde in der Schweizer den Standort, der eine möglichst grossen Aussichtsfläche im Umkreis von 15km bietet.');
-INSERT INTO public.instructions(level, instruction) VALUES (2, 'Weise die 3 Bilder in deinem Sektor an den richtigen drei der 20 Standorten zu.');
-INSERT INTO public.instructions(level, instruction) VALUES (3, 'Wild bicycles: Wir räumen Bern auf. Mappe alle wild parkierten Velos in deinem Sektor. Beweis dein Fund mit einem Bildattachment samt GeoSummit-Ticket.');
-INSERT INTO public.instructions(level, instruction) VALUES (4, 'Finde die Droids (Androiduser)! Beweis dein Fund mit einem Bildattachment samt GeoSummit-Ticket.');
-INSERT INTO public.instructions(level, instruction) VALUES (5, 'Gleichseitiges Dreieck-Mapping: Mit 3 GPS-Koordinate von Tractalis-Trackern ein gleichseitiges, Dreieck bauen. Bewertung: nach 10 Minuten');
-INSERT INTO public.instructions(level, instruction) VALUES (6, 'Finale Mission im GeoSchoolForum What3Words Puzzle:');
+INSERT INTO public.instructions(level, instruction) VALUES (1, 'Findet in der Schweiz einen Standort mit einem Durchmesser von 15 km, welcher eine möglichst grosse Aussichtsfläche bietet.');
+INSERT INTO public.instructions(level, instruction) VALUES (2, 'Weist die 3 Bilder den richtigen 3 Standorten in eurem Sektor zu.');
+INSERT INTO public.instructions(level, instruction) VALUES (3, 'Wild bicycles: Wir räumen Bern auf. Mappe alle wild parkierten Velos in deinem Sektor. Beweist euren Fund mit einem Foto, auf welchem eines eurer GeoSummit-Ticket zu sehen ist.');
+INSERT INTO public.instructions(level, instruction) VALUES (4, 'Finde die Droids (Androiduser)! Beweist euren Fund mit einem Foto, auf welchem eines eurer GeoSummit-Ticket zu sehen ist.');
+INSERT INTO public.instructions(level, instruction) VALUES (5, 'Gleichseitiges Dreieck-Mapping: Mit 3 GPS-Koordinate von Tractalis-Trackern ein gleichseitiges Dreieck bauen. Bewertung: nach 10 Minuten');
+INSERT INTO public.instructions(level, instruction) VALUES (6, 'w3w Challenge: Das Vermessen unseres Planeten ergibt viele geografische Rekorde.');
 INSERT INTO public.maps(level, map_link) VALUES(1, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/PublicInformation/index.html?appid=38a2d873ce6c441796674150798dad70"></iframe>')
 INSERT INTO public.maps(level, map_link) VALUES(2, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/PublicInformation/index.html?appid=323208e9b6634ecfbc3caf5944556ef3"></iframe>')
 INSERT INTO public.maps(level, map_link) VALUES(3, '<iframe width="100%" height="407" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://schoolgis.maps.arcgis.com/apps/PublicInformation/index.html?appid=b2d0d1e35d704abc8789cebe041b5cdf"></iframe>')

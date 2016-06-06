@@ -27,6 +27,7 @@ CONNECTION = psycopg2.connect(
     )
 
 CURSOR = CONNECTION.cursor()
+
 QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
                                                                        "=1%3D1&outFields=Status&f=pjson"]
 
@@ -258,7 +259,7 @@ def get_classes_in_statistics(curr_level):
                 if(len(features)) > 0:
                     level_points = features[0]['attributes']['Flaeche']
             else:
-                level_points = len(features)
+                level_points = len(features) * 2
             CURSOR.execute(select_old_points, (player_id,))
             old_points = CURSOR.fetchone()[0]
             CURSOR.execute(QUERY_POINTS, (player_id,))
@@ -338,3 +339,4 @@ def get_instruction_header(current_level, level):
         return 'Not Started'
     else:
         return 'Playing'
+

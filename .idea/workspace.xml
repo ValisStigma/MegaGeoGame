@@ -5,12 +5,14 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://C:/Python27/Lib/site-packages/werkzeug/local.py" line="335" />
-    <bookmark url="file://$PROJECT_DIR$/mega_geo_game.py" line="341" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/mega_geo_game.py" line="337" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="152d1ff1-c4cb-46b6-be79-59c29077680d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mega_geo_game.py" afterPath="$PROJECT_DIR$/mega_geo_game.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/countdown.js" afterPath="$PROJECT_DIR$/static/countdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/content.html" afterPath="$PROJECT_DIR$/templates/content.html" />
     </list>
     <ignored path="MegaGeoGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +26,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MegaGeoGame$MegaGeoGame.coverage" NAME="MegaGeoGame Coverage Results" MODIFIED="1465159341775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MegaGeoGame$MegaGeoGame.coverage" NAME="MegaGeoGame Coverage Results" MODIFIED="1465281998305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -38,18 +40,8 @@
       <file leaf-file-name="input-level6.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/input-level6.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
+            <state relative-caret-position="1188">
               <caret line="54" column="190" selection-start-line="54" selection-start-column="190" selection-end-line="54" selection-end-column="190" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input-level1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/input-level1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="45" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -58,7 +50,7 @@
       <file leaf-file-name="input-level2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/input-level2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
+            <state relative-caret-position="968">
               <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="47" selection-end-column="53" />
               <folding />
             </state>
@@ -68,63 +60,75 @@
       <file leaf-file-name="input-level3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/input-level3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
+            <state relative-caret-position="1034">
               <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mega_geo_game.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mega_geo_game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5567">
-              <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+            <state relative-caret-position="758">
+              <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
               <folding>
                 <element signature="e#23#83#0" expanded="true" />
-                <marker date="1465246812063" expanded="true" signature="1910:1954" placeholder="SELECT point... classes" />
-                <marker date="1465246812063" expanded="true" signature="1979:2027" placeholder="UPDATE class... " />
-                <marker date="1465246812063" expanded="true" signature="2049:2134" placeholder="SELECT point... " />
-                <marker date="1465246812063" expanded="true" signature="7471:7513" placeholder="SELECT point... level1" />
-                <marker date="1465246812063" expanded="true" signature="7549:7595" placeholder="UPDATE level... " />
-                <marker date="1465246812063" expanded="true" signature="7699:7739" placeholder="SELECT numb level3" />
-                <marker date="1465246812063" expanded="true" signature="7775:7819" placeholder="UPDATE level... " />
-                <marker date="1465246812063" expanded="true" signature="7923:7964" placeholder="SELECT socks... level4" />
-                <marker date="1465246812063" expanded="true" signature="8000:8045" placeholder="UPDATE level... " />
-                <marker date="1465246812063" expanded="true" signature="9268:9308" placeholder="SELECT name classes" />
-                <marker date="1465246812063" expanded="true" signature="10364:10417" placeholder="SELECT instr... instructions" />
-                <marker date="1465246812063" expanded="true" signature="10521:10563" placeholder="SELECT map_l... maps" />
+                <marker date="1465282106407" expanded="true" signature="1908:1952" placeholder="SELECT point... classes" />
+                <marker date="1465282106407" expanded="true" signature="1977:2025" placeholder="UPDATE class... " />
+                <marker date="1465282106407" expanded="true" signature="2047:2132" placeholder="SELECT point... " />
+                <marker date="1465282106407" expanded="true" signature="7644:7686" placeholder="SELECT point... level1" />
+                <marker date="1465282106407" expanded="true" signature="7722:7768" placeholder="UPDATE level... " />
+                <marker date="1465282106407" expanded="true" signature="7872:7912" placeholder="SELECT numb level3" />
+                <marker date="1465282106407" expanded="true" signature="7948:7992" placeholder="UPDATE level... " />
+                <marker date="1465282106407" expanded="true" signature="8096:8137" placeholder="SELECT socks... level4" />
+                <marker date="1465282106407" expanded="true" signature="8173:8218" placeholder="UPDATE level... " />
+                <marker date="1465282106407" expanded="true" signature="9441:9481" placeholder="SELECT name classes" />
+                <marker date="1465282106407" expanded="true" signature="10548:10601" placeholder="SELECT instr... instructions" />
+                <marker date="1465282106407" expanded="true" signature="10705:10747" placeholder="SELECT map_l... maps" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="countdown.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/flask/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="1372" column="0" selection-start-line="1372" selection-start-column="0" selection-end-line="1372" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="local.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/werkzeug/local.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="countdown.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/countdown.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
-              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes.txt">
+      <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input-level1.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/input-level1.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="630">
+              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+              <folding>
+                <element signature="e#9792#9841#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,7 +136,7 @@
       <file leaf-file-name="input-level4.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/input-level4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
+            <state relative-caret-position="1012">
               <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding />
             </state>
@@ -142,7 +146,7 @@
       <file leaf-file-name="input-level5.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/input-level5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
+            <state relative-caret-position="792">
               <caret line="36" column="277" selection-start-line="36" selection-start-column="277" selection-end-line="36" selection-end-column="277" />
               <folding />
             </state>
@@ -176,7 +180,6 @@
         <option value="$PROJECT_DIR$/templates/skeleton.html" />
         <option value="$PROJECT_DIR$/static/content.css" />
         <option value="$PROJECT_DIR$/static/skeleton.css" />
-        <option value="$PROJECT_DIR$/templates/content.html" />
         <option value="$PROJECT_DIR$/templates/instruction.html" />
         <option value="$PROJECT_DIR$/classes.txt" />
         <option value="$PROJECT_DIR$/templates/input-level1.html" />
@@ -185,8 +188,9 @@
         <option value="$PROJECT_DIR$/templates/input-level4.html" />
         <option value="$PROJECT_DIR$/templates/input-level5.html" />
         <option value="$PROJECT_DIR$/templates/input-level6.html" />
-        <option value="$PROJECT_DIR$/mega_geo_game.py" />
         <option value="$PROJECT_DIR$/static/countdown.js" />
+        <option value="$PROJECT_DIR$/templates/content.html" />
+        <option value="$PROJECT_DIR$/mega_geo_game.py" />
       </list>
     </option>
   </component>
@@ -197,10 +201,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
+    <option name="x" value="-2409" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="width" value="2418" />
+    <option name="height" value="1468" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -227,8 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,6 +279,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -617,32 +621,39 @@
       <option name="project" value="LOCAL" />
       <updated>1465246821147</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cleaned Up unnessecary Code">
+      <created>1465246894442</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1465246894442</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-2409" y="-9" width="2418" height="1468" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17135416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13708334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5020986" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30809596" sideWeight="0.49790135" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43328336" sideWeight="0.49580273" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3085339" sideWeight="0.49790135" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43362832" sideWeight="0.49580273" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -667,26 +678,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/mega_geo_game.py</url>
-          <line>118</line>
+          <line>114</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/mega_geo_game.py</url>
-          <line>119</line>
+          <line>115</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/mega_geo_game.py</url>
-          <line>122</line>
+          <line>118</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/mega_geo_game.py</url>
-          <line>120</line>
+          <line>116</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="115" />
+      <option name="time" value="125" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -775,25 +786,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="1361" column="0" selection-start-line="1361" selection-start-column="0" selection-end-line="1361" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/flask/json.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4972">
           <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/werkzeug/local.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6446">
-          <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,19 +922,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="28" column="74" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/instruction.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -946,13 +933,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
+        <state relative-caret-position="726">
           <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
           <folding />
         </state>
@@ -968,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
+        <state relative-caret-position="924">
           <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="45" selection-end-column="67" />
           <folding />
         </state>
@@ -976,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
+        <state relative-caret-position="968">
           <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="47" selection-end-column="53" />
           <folding />
         </state>
@@ -984,7 +970,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
+        <state relative-caret-position="1034">
           <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
           <folding />
         </state>
@@ -992,7 +978,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
+        <state relative-caret-position="1012">
           <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           <folding />
         </state>
@@ -1000,7 +986,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
+        <state relative-caret-position="792">
           <caret line="36" column="277" selection-start-line="36" selection-start-column="277" selection-end-line="36" selection-end-column="277" />
           <folding />
         </state>
@@ -1008,39 +994,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/input-level6.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
+        <state relative-caret-position="1188">
           <caret line="54" column="190" selection-start-line="54" selection-start-column="190" selection-end-line="54" selection-end-column="190" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5567">
-          <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#83#0" expanded="true" />
-            <marker date="1465246812063" expanded="true" signature="1910:1954" placeholder="SELECT point... classes" />
-            <marker date="1465246812063" expanded="true" signature="1979:2027" placeholder="UPDATE class... " />
-            <marker date="1465246812063" expanded="true" signature="2049:2134" placeholder="SELECT point... " />
-            <marker date="1465246812063" expanded="true" signature="7471:7513" placeholder="SELECT point... level1" />
-            <marker date="1465246812063" expanded="true" signature="7549:7595" placeholder="UPDATE level... " />
-            <marker date="1465246812063" expanded="true" signature="7699:7739" placeholder="SELECT numb level3" />
-            <marker date="1465246812063" expanded="true" signature="7775:7819" placeholder="UPDATE level... " />
-            <marker date="1465246812063" expanded="true" signature="7923:7964" placeholder="SELECT socks... level4" />
-            <marker date="1465246812063" expanded="true" signature="8000:8045" placeholder="UPDATE level... " />
-            <marker date="1465246812063" expanded="true" signature="9268:9308" placeholder="SELECT name classes" />
-            <marker date="1465246812063" expanded="true" signature="10364:10417" placeholder="SELECT instr... instructions" />
-            <marker date="1465246812063" expanded="true" signature="10521:10563" placeholder="SELECT map_l... maps" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/countdown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding>
+            <element signature="e#9792#9841#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="1372" column="0" selection-start-line="1372" selection-start-column="0" selection-end-line="1372" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/werkzeug/local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mega_geo_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#83#0" expanded="true" />
+            <marker date="1465282106407" expanded="true" signature="1908:1952" placeholder="SELECT point... classes" />
+            <marker date="1465282106407" expanded="true" signature="1977:2025" placeholder="UPDATE class... " />
+            <marker date="1465282106407" expanded="true" signature="2047:2132" placeholder="SELECT point... " />
+            <marker date="1465282106407" expanded="true" signature="7644:7686" placeholder="SELECT point... level1" />
+            <marker date="1465282106407" expanded="true" signature="7722:7768" placeholder="UPDATE level... " />
+            <marker date="1465282106407" expanded="true" signature="7872:7912" placeholder="SELECT numb level3" />
+            <marker date="1465282106407" expanded="true" signature="7948:7992" placeholder="UPDATE level... " />
+            <marker date="1465282106407" expanded="true" signature="8096:8137" placeholder="SELECT socks... level4" />
+            <marker date="1465282106407" expanded="true" signature="8173:8218" placeholder="UPDATE level... " />
+            <marker date="1465282106407" expanded="true" signature="9441:9481" placeholder="SELECT name classes" />
+            <marker date="1465282106407" expanded="true" signature="10548:10601" placeholder="SELECT instr... instructions" />
+            <marker date="1465282106407" expanded="true" signature="10705:10747" placeholder="SELECT map_l... maps" />
+          </folding>
         </state>
       </provider>
     </entry>

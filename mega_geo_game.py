@@ -14,7 +14,6 @@ GEOMETRYHANDLER = GeometryHandler()
 DATABASE_URL = (
     '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
 )
-
 urlparse.uses_netloc.append("postgres")
 URL = urlparse.urlparse(os.environ['DATABASE_URL'])
 
@@ -27,7 +26,6 @@ CONNECTION = psycopg2.connect(
     )
 
 CURSOR = CONNECTION.cursor()
-
 QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
                                                                        "=1%3D1&outFields=Status&f=pjson"]
 
@@ -58,11 +56,9 @@ PLAYER_IDS = [
     'D1',
     'E1',
     'F1',
-    'G1',
-    'H1',
-    'I1',
-    'J1'
+    'G1'
 ]
+CLASS_NAMES = {'A1': 'Quarta C - Aargau', 'B1': 'Quarta 19a - Aargau', 'C1': 'Quarta 19b - Aargau', 'D1': '19d (Quarta) - Aargau', 'E1': '4r - Basel-Landschaft', 'F1':'VK7 - Zürich', 'G1': 'a1f - Zürich'}
 VALID_LEVELS = [1, 2, 3, 4, 5, 6, 7]
 VALID_STATES = ['weiss', 'schwarz']
 
@@ -308,7 +304,7 @@ def get_ranking():
     curr_places = []
     for curr_class in classes:
         class_text = (
-            curr_class['class_name'] +
+            CLASS_NAMES[curr_class['class_id']] +
             '<div class="points_ranking" style="float: right;" >' +
             str(curr_class['points']) +
             ' points' +

@@ -14,16 +14,34 @@ GEOMETRYHANDLER = GeometryHandler()
 DATABASE_URL = (
     '''postgres://dgibhwjhbemyxu:rFqJwYnsX48PtWyR8LUgVHH0bE@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d6ln3gnquqodqq'''
 )
+
+MANUAL_STATS = {
+    1: [{"name": "A1", "points": 66}, {"name": "B1", "points": 30}, {"name": "C1", "points": 50},
+        {"name": "D1", "points": 2}, {"name": "E1", "points": 0}, {"name": "F1", "points": 40}, {"name": "G1", "points": 75}
+        ],
+    2: [{"name": "A1", "points": 50}, {"name": "B1", "points": 0}, {"name": "C1", "points": 50},
+        {"name": "D1", "points": 0}, {"name": "E1", "points": 0}, {"name": "F1", "points": 50}, {"name": "G1", "points": 50}],
+    3: [{"name": "A1", "points": 35}, {"name": "B1", "points": 15}, {"name": "C1", "points": 37},
+        {"name": "D1", "points": 7}, {"name": "E1", "points": 12}, {"name": "F1", "points": 14}, {"name": "G1", "points": 40}],
+    4: [{"name": "A1", "points": 15}, {"name": "B1", "points": 14}, {"name": "C1", "points": 24},
+        {"name": "D1", "points": 11}, {"name": "E1", "points": 7}, {"name": "F1", "points": 16}, {"name": "G1", "points": 28}],
+    5: [{"name": "A1", "points": 62}, {"name": "B1", "points": 0}, {"name": "C1", "points": 50},
+        {"name": "D1", "points": 0}, {"name": "E1", "points": 0}, {"name": "F1", "points": 0}, {"name": "G1", "points": 93}],
+    6: [{"name": "A1", "points": 0}, {"name": "B1", "points": 0}, {"name": "C1", "points": 0},
+        {"name": "D1", "points": 0}, {"name": "E1", "points": 0}, {"name": "F1", "points": 0}, {"name": "G1", "points": 140}],
+    7: [{"name": "A1", "points": 0}, {"name": "B1", "points": 0}, {"name": "C1", "points": 0},
+        {"name": "D1", "points": 0}, {"name": "E1", "points": 0}, {"name": "F1", "points": 0}, {"name": "G1", "points": 75}]}
+
 urlparse.uses_netloc.append("postgres")
-URL = urlparse.urlparse(os.environ['DATABASE_URL'])
+# URL = urlparse.urlparse(os.environ['DATABASE_URL'])
 
 CONNECTION = psycopg2.connect(
-    database=URL.path[1:],
-    user=URL.username,
-    password=URL.password,
-    host=URL.hostname,
-    port=URL.port
-    )
+     database="d6ln3gnquqodqq",
+     user="dgibhwjhbemyxu",
+     password="rFqJwYnsX48PtWyR8LUgVHH0bE",
+     host="ec2-54-228-219-2.eu-west-1.compute.amazonaws.com",
+     port="5432"
+ )
 
 CURSOR = CONNECTION.cursor()
 QUERY_GET_LEVEL = ["http://services1.arcgis.com/6RDtDcHz3yZdtEVu/ArcGIS/rest/services/mgg2016_gamestate_m", "_sek1/FeatureServer/0/query?where"
@@ -170,7 +188,9 @@ def elements_for_manual_mode(curr_level, clicked_level):
         stats=stats,
         header=header,
         instruction=instruction_panel_text,
-        map=map_iframe
+        map=map_iframe,
+        ranking=MANUAL_STATS[clicked_level]
+
     )
 
 
@@ -179,7 +199,7 @@ def update():
     curr_level = int(request.args.get('current_level'))
     curr_state = request.args.get('current_state')
     if not curr_level in VALID_LEVELS:
-        curr_level = 0
+        curr_level = 1
     instruction_panel_text = get_instruction(curr_level)
     instruction_panel_heading = ''
     if curr_level == 0:
@@ -330,9 +350,12 @@ def get_map(level):
 
 def get_instruction_header(current_level, level):
     if current_level > level:
-        return 'Passed'
+        return 'Aktueller Auftrag'
     elif current_level < level:
-        return 'Not Started'
+        return 'Aktueller Auftrag'
     else:
-        return 'Playing'
+        return 'Aktueller Auftrag'
 
+
+if __name__ == '__main__':
+    APP.run()
